@@ -8,10 +8,6 @@
 import Foundation
 import UIKit
 
-protocol IDetailedInfoViewController: AnyObject {
-    
-}
-
 final class DetailedInfoViewController: UIViewController {
     var currency: String?
     
@@ -23,7 +19,7 @@ final class DetailedInfoViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         self.presenter = presenter
         presenter.viewDidLoad(view: currencyView)
-        
+
     }
     
     required init?(coder: NSCoder) {
@@ -32,9 +28,30 @@ final class DetailedInfoViewController: UIViewController {
     
     override func loadView() {
         self.view = currencyView
+        configureNavBar()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    func configureNavBar() {
+//        navigationItem.hidesSearchBarWhenScrolling = true
+        navigationItem.titleView?.backgroundColor = Colors.backgroundBlue.value
+        navigationController?.navigationBar.tintColor = .white
+        navigationItem.titleView?.tintColor = Colors.purple.value
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "yellowStar"),
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(addToFav))
+        
+        
+    }
+    @objc func addToFav() {
+        
     }
 }
 
-extension DetailedInfoViewController: IDetailedInfoViewController {
-    
+
+extension DetailedInfoViewController {
 }

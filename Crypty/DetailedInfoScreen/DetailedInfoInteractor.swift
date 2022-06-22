@@ -18,6 +18,7 @@ final class DetailedInfoInteractor {
 
 extension DetailedInfoInteractor: IDetailedInfoInteractor {
     func getData() -> DetailedInfoViewModel {
-        return DetailedInfoViewModel()
+        let entity = DetailedInfoViewModel(price: "22", percent: "2", high24: "33", low24: "11", rating: "1", allTimeHigh: "44", at: "02.03", daysSince: "23", percentDown: "14", infoText: "KAGKAJDKGJAKJGAKJGKAJKGJAKDJGKJGKADJG:KJAK:GJ")
+    return entity
     }
 }

@@ -45,6 +45,12 @@
 		4801C34C28625BBA0033C8CC /* DetailedInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C34B28625BBA0033C8CC /* DetailedInfoRouter.swift */; };
 		4801C34E28625BC20033C8CC /* DetailedInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C34D28625BC20033C8CC /* DetailedInfoViewModel.swift */; };
 		4801C35028625BD10033C8CC /* DetailedInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C34F28625BD10033C8CC /* DetailedInfoViewController.swift */; };
+		4801C355286357B30033C8CC /* CryptoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C354286357B30033C8CC /* CryptoDTO.swift */; };
+		4801C35728635C430033C8CC /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C35628635C430033C8CC /* AuthenticationService.swift */; };
+		4801C359286360E90033C8CC /* DIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C358286360E90033C8CC /* DIManager.swift */; };
+		4801C35B2863BDEA0033C8CC /* CryptoDTOtwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C35A2863BDEA0033C8CC /* CryptoDTOtwo.swift */; };
+		4801C35D2863D2920033C8CC /* NumberConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C35C2863D2920033C8CC /* NumberConverter.swift */; };
+		4801C35F2863D4AF0033C8CC /* PercentConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C35E2863D4AF0033C8CC /* PercentConverter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +93,12 @@
 		4801C34B28625BBA0033C8CC /* DetailedInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedInfoRouter.swift; sourceTree = "<group>"; };
 		4801C34D28625BC20033C8CC /* DetailedInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedInfoViewModel.swift; sourceTree = "<group>"; };
 		4801C34F28625BD10033C8CC /* DetailedInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedInfoViewController.swift; sourceTree = "<group>"; };
+		4801C354286357B30033C8CC /* CryptoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDTO.swift; sourceTree = "<group>"; };
+		4801C35628635C430033C8CC /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		4801C358286360E90033C8CC /* DIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIManager.swift; sourceTree = "<group>"; };
+		4801C35A2863BDEA0033C8CC /* CryptoDTOtwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDTOtwo.swift; sourceTree = "<group>"; };
+		4801C35C2863D2920033C8CC /* NumberConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberConverter.swift; sourceTree = "<group>"; };
+		4801C35E2863D4AF0033C8CC /* PercentConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentConverter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +196,8 @@
 				4801C30A2861E68F0033C8CC /* Fonts */,
 				4801C3272861F7D30033C8CC /* Colors.swift */,
 				4801C341286244130033C8CC /* CurrencyFormatter.swift */,
+				4801C35C2863D2920033C8CC /* NumberConverter.swift */,
+				4801C35E2863D4AF0033C8CC /* PercentConverter.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -211,7 +225,10 @@
 		4801C33928622ADA0033C8CC /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4801C35628635C430033C8CC /* AuthenticationService.swift */,
 				4801C33F286232980033C8CC /* NetworkService.swift */,
+				4801C358286360E90033C8CC /* DIManager.swift */,
+				4801C353286357A10033C8CC /* DTO */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -224,6 +241,15 @@
 				4801C33C28622E080033C8CC /* CurrencyListDataSource.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4801C353286357A10033C8CC /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				4801C354286357B30033C8CC /* CryptoDTO.swift */,
+				4801C35A2863BDEA0033C8CC /* CryptoDTOtwo.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,6 +335,9 @@
 			files = (
 				4801C34C28625BBA0033C8CC /* DetailedInfoRouter.swift in Sources */,
 				4801C340286232980033C8CC /* NetworkService.swift in Sources */,
+				4801C35F2863D4AF0033C8CC /* PercentConverter.swift in Sources */,
+				4801C359286360E90033C8CC /* DIManager.swift in Sources */,
+				4801C35B2863BDEA0033C8CC /* CryptoDTOtwo.swift in Sources */,
 				4801C3242861E7BD0033C8CC /* AppFonts.swift in Sources */,
 				4801C2FB2861DEE60033C8CC /* LoginAssembly.swift in Sources */,
 				4801C3052861E0440033C8CC /* LoginViewModel.swift in Sources */,
@@ -321,15 +350,18 @@
 				4801C336286226E60033C8CC /* CurrencyListViewModel.swift in Sources */,
 				4801C33B28622DF70033C8CC /* CurrencyListCell.swift in Sources */,
 				4801C3012861DF090033C8CC /* LoginRouter.swift in Sources */,
+				4801C35728635C430033C8CC /* AuthenticationService.swift in Sources */,
 				4801C3282861F7D30033C8CC /* Colors.swift in Sources */,
 				4801C2F32861CD3A0033C8CC /* CurrencyListViewController.swift in Sources */,
 				4801C342286244130033C8CC /* CurrencyFormatter.swift in Sources */,
+				4801C355286357B30033C8CC /* CryptoDTO.swift in Sources */,
 				4801C338286226F60033C8CC /* CurrencyListAssembly.swift in Sources */,
 				4801C331286226CB0033C8CC /* CurrencyListInteractor.swift in Sources */,
 				4801C32D286226B80033C8CC /* CurrencyListView.swift in Sources */,
 				4801C35028625BD10033C8CC /* DetailedInfoViewController.swift in Sources */,
 				4801C2F52861DA130033C8CC /* LoginViewController.swift in Sources */,
 				4801C3032861DF140033C8CC /* LoginView.swift in Sources */,
+				4801C35D2863D2920033C8CC /* NumberConverter.swift in Sources */,
 				4801C34828625BAA0033C8CC /* DetailedInfoInteractor.swift in Sources */,
 				4801C34628625BA00033C8CC /* DetailedInfoAssembly.swift in Sources */,
 				4801C2E12860EE9D0033C8CC /* SceneDelegate.swift in Sources */,
@@ -488,6 +520,7 @@
 				INFOPLIST_FILE = Crypty/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -515,6 +548,7 @@
 				INFOPLIST_FILE = Crypty/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

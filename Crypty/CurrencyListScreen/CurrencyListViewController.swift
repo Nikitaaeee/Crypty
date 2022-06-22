@@ -41,11 +41,14 @@ final class CurrencyListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configuraNavController()
+        configureTapOnRow()
         
     }
     
     func configureTapOnRow() {
-        currencyView.didSelectRowAt
+        self.currencyView.didSelectRowAt = { [weak self] currency in
+            self?.presenter?.goToSelecterRow(for: currency)
+        }
     }
     
 }

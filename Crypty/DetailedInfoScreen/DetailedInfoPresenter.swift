@@ -26,6 +26,11 @@ final class DetailedInfoPresenter {
 
 extension DetailedInfoPresenter: IDetailedInfoPresenter {
     func viewDidLoad(view: IDetailedInfoView) {
-        //
+        let data: DetailedInfoViewModel?
+        self.view = view
+        data = interactor?.getData()
+        if let data = data {
+            self.view?.getData(data: data)
+        }
     }
 }

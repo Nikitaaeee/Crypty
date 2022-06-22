@@ -10,14 +10,14 @@ import UIKit
 
 protocol ICurrencyListView: AnyObject {
     func getData(data: [CurrencyListViewModel])
-    var didSelectRowAt: ((Int) -> ())? { get set }
+    var didSelectRowAt: ((String) -> ())? { get set }
 }
 
 final class CurrencyListView: UIView {
     
     public var data: [CurrencyListViewModel]?
     private var tableView = UITableView()
-    var didSelectRowAt: ((Int) -> ())?
+    var didSelectRowAt: ((String) -> ())?
     var dataSource = CurrencyListDataSoruce()
     
     private enum Constants {
@@ -27,6 +27,7 @@ final class CurrencyListView: UIView {
         static let sortButtonLeading = 50
         static let sortButtonHeight = 22
         static let sortButtonCornerRadius: CGFloat = 12
+        static let tableViewCellHeight: CGFloat = 70
     }
     
     private enum Texts {
@@ -110,13 +111,20 @@ extension CurrencyListView: ICurrencyListView {
         self.dataSource.data = data
         tableView.reloadData()
     }
+    
+    func checkPercent() {
+        if data == nil {
+            print("22222222")
+        }
+    }
 }
 
 extension CurrencyListView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let destVC = DetailedInfoAssembly.build()
-        if let currency = data?[indexPath.row].currencyShortName {
-            destVC.currency = currency
-        }
+        let currency = dataSource.data[indexPath.row].id
+        didSelectRowAt?(currency)
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Constants.tableViewCellHeight
     }
 }

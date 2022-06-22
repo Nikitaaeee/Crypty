@@ -22,5 +22,5 @@ extension CurrencyListDataSoruce: UITableViewDataSource {
         cell.showData(data[indexPath.row])
         cell.backgroundColor = Colors.backgroundBlue.value
         return cell
-    }
+    }    
 }

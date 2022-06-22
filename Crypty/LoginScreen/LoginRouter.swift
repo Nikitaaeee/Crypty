@@ -17,6 +17,8 @@ final class LoginRouter {
 
 extension LoginRouter: ILoginRouter {
     func routeToListScreen() {
-        self.vc?.navigationController?.pushViewController(CurrencyListAssembly.build(), animated: true)
+        self.vc?.navigationController?.pushViewController(CurrencyListAssembly.build(.init()), animated: true)
+//        self.vc?.navigationController?.pushViewController(DetailedInfoAssembly.build(), animated: true)
+
     }
 }

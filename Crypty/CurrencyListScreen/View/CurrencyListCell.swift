@@ -86,7 +86,7 @@ class CurrencyListCell: UITableViewCell {
 
 extension CurrencyListCell {
     func showData(_ model: CurrencyListViewModel) {
-        self.coinImageView.image = UIImage(named: model.image)
+        self.coinImageView.image = UIImage(named: model.image ?? "shiba-inu1")
         self.shortNameLabel.text = model.currencyShortName
         self.fullNameLabel.text = model.currencyFullName
         self.priceLabel.text = model.price
@@ -112,7 +112,7 @@ private extension CurrencyListCell {
     func configureBackgroundImageViewConstraints() {
         self.contentView.addSubview(coinImageBackroundView)
         self.coinImageBackroundView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
+//            make.top.bottom.equalToSuperview()
             make.width.height.equalTo(Constants.imageBackgroundSize)
             make.leading.equalToSuperview().offset(Constants.topBottomInset)
         }

@@ -19,6 +19,7 @@ enum AppFonts {
     case medium14
     case medium12
     case regular24
+    case regular20
     case regular18
     case regular16
     
@@ -46,6 +47,8 @@ enum AppFonts {
             return UIFont(name: "Roboto-Medium", size: 12)
         case .regular24:
             return UIFont(name: "Roboto-Regular", size: 24)
+        case .regular20:
+            return UIFont(name: "Roboto-Regular", size: 20)
         case .regular18:
             return UIFont(name: "Roboto-Regular", size: 18)
         case .regular16:
