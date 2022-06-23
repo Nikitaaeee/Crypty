@@ -8,23 +8,31 @@
 import Foundation
 
 protocol IAuthenticationService {
-    func login(email: String, password: String, completion: @escaping (Result<Bool,Error>) -> Void)
-
+    var isAuthorized: Bool { get }
+    func login(email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void)
+    func logout(completion: @escaping (Result<Void, Error>) -> Void)
 }
 
 
 
 class AuthenticationService: IAuthenticationService {
-    
+    @UserDefaultsStorage(key: "AuthenticationService.isAuthorized", default: false)
+    private(set) var isAuthorized: Bool
 
-    func login(email: String, password: String, completion: @escaping (Result<Bool,Error>) -> Void) {
+    func login(email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void) {
         if mockEmail == email && mockPassword == password {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                completion(.success(true))
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+                completion(.success(()))
+                self?.isAuthorized = true
             }
         } else {
-            completion(.success(false))
+            completion(.success(()))
         }
+    }
+    
+    func logout(completion: @escaping (Result<Void, Error>) -> Void) {
+        isAuthorized = false
+        completion(.success(()))
     }
 }
 

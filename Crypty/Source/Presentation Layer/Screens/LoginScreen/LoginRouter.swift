@@ -8,7 +8,6 @@
 import UIKit
 
 protocol ILoginRouter: AnyObject {
-    func routeToListScreen()
     func didRequestAlert(title: String, message: String)
 }
 
@@ -17,10 +16,6 @@ final class LoginRouter {
 }
 
 extension LoginRouter: ILoginRouter {
-    func routeToListScreen() {
-        self.vc?.navigationController?.pushViewController(CurrencyListAssembly.build(.init()), animated: true)
-//        self.vc?.navigationController?.pushViewController(DetailedInfoAssembly.build(), animated: true)
-    }
     func didRequestAlert(title: String, message: String) {
         let alertController = UIAlertController(
             title: title,

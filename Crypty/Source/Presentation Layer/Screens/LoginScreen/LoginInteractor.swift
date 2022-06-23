@@ -19,8 +19,8 @@ extension LoginInteractor: ILoginInteractor {
     func login(email: String, password: String, completion: @escaping (Bool) -> Void) {
         authService.login(email: email, password: password) { result in
             switch result {
-            case .success(let status):
-                completion(status)
+            case .success:
+                completion(true)
             case .failure(_):
                 print("error")
                 completion(false)

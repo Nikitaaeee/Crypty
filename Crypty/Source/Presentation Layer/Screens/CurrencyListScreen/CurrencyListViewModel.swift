@@ -13,6 +13,8 @@ struct CurrencyListViewModel: Decodable {
     let currencyFullName: String
     let price: String
     let percent: String
+//    let percentDiff: Difference
+    
     var image: URL?
 
 }
@@ -28,6 +30,24 @@ extension CurrencyListViewModel {
         self.currencyFullName = currencyFullName
         self.price = NumberConverter.converter(number: price)
         self.percent = String(format: "%.3f", percent)
+//        self.percentDiff = Difference(value: percent)
+//        self.per
         self.image = nil
+    }
+}
+
+enum Difference {
+    case up
+    case down
+    case none
+    
+    init(value: Double) {
+        if value < 0 {
+            self = .down
+        } else if value > 0 {
+            self = .up
+        } else {
+            self = .none
+        }
     }
 }

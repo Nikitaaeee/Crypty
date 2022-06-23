@@ -9,13 +9,12 @@ import UIKit
 
 final class CurrencyListViewController: UIViewController {
     
-    private var presenter: CurrencyListPresenter?
-    private var router = CurrencyListRouter()
-    private var currencyView = CurrencyListView()
+    private let presenter: CurrencyListPresenter?
+    private let currencyView = CurrencyListView()
     
     init(presenter: CurrencyListPresenter) {
-        super.init(nibName: nil, bundle: nil)
         self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
         presenter.viewDidLoad(view: currencyView)
         
     }
@@ -26,12 +25,11 @@ final class CurrencyListViewController: UIViewController {
     
     func configuraNavController() {
         let backImage = UIImage(named: "Back")
+        navigationController?.navigationBar.barTintColor = Colors.purple.value
+        navigationItem.backButtonTitle = ""
         self.navigationController?.navigationBar.backIndicatorImage = backImage
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImage
-        
         navigationItem.leftItemsSupplementBackButton = true
-
-//        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
     }
     
     override func loadView() {
@@ -48,6 +46,10 @@ final class CurrencyListViewController: UIViewController {
     func configureTapOnRow() {
         self.currencyView.didSelectRowAt = { [weak self] id in
             self?.presenter?.goToSelecterRow(for: id)
+        }
+        
+        self.currencyView.didTapFavoriteButton = { [weak self] isFavoriteChecked in
+            self?.presenter?.didTapFavoriteButton(isFavoriteChecked: isFavoriteChecked)
         }
     }
     

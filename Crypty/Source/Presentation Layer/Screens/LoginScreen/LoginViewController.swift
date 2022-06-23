@@ -29,6 +29,15 @@ final class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTapHandler()
+        configureNavBar()
+    }
+    
+    func configureNavBar() {
+        navigationController?.navigationBar.prefersLargeTitles = false
+//        navigationItem.hidesSearchBarWhenScrolling = true
+//        navigationItem.titleView?.backgroundColor = Colors.backgroundBlue.value
+        navigationController?.navigationBar.tintColor = Colors.purple.value
+        navigationItem.titleView?.tintColor = Colors.backgroundBlue.value
     }
 }
 

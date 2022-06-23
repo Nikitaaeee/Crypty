@@ -8,6 +8,8 @@
 import Foundation
 
 struct DetailedInfoViewModel {
+    let name: String
+    let symbol: String
     let price: String
     let percent: String
     let high24: String
@@ -23,7 +25,8 @@ struct DetailedInfoViewModel {
 extension DetailedInfoViewModel {
     
     init(from data: Datum) {
-        guard let price = data.metrics?.marketData?.priceUsd,
+        guard let name = data.name,
+              let price = data.metrics?.marketData?.priceUsd,
               let percent = data.metrics?.marketData?.percentChangeUsdLast24_Hours,
               let high24 = data.metrics?.marketData?.ohlcvLast24_Hour?.high,
               let low24 = data.metrics?.marketData?.ohlcvLast24_Hour?.low,
@@ -34,6 +37,8 @@ extension DetailedInfoViewModel {
               let percentDown = data.metrics?.allTimeHigh?.percentDown,
               let infoText = data.profile?.general?.overview?.projectDetails else { assert(false) }
         
+        self.name = name
+        self.symbol = data.symbol
         self.price = NumberConverter.converter(number: price)
         self.percent = String(format: "%.3f", percent)
         self.high24 = NumberConverter.converter(number: high24)

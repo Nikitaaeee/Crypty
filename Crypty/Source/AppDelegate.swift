@@ -9,17 +9,21 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    // MARK: - Internal
+    
+    lazy var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
 
-
-    var window: UIWindow?
-
+    // MARK: - Private
+    
+    private let serviceAssembly = ServiceAssembly()
+    private lazy var appCoordinator = AppCoordinator(window: window, serviceAssembly: serviceAssembly)
+    
+    // MARK: - Methods
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
        
-        let navController = UINavigationController(rootViewController: LoginAssembly.build())
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = navController
-        self.window?.makeKeyAndVisible()
-
+        appCoordinator.start()
         return true
     }
 

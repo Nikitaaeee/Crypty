@@ -9,22 +9,28 @@ import UIKit
 
 protocol IDetailedInfoView: AnyObject {
     func getData(data: DetailedInfoViewModel)
+    var didTapFavoriteButton: (() -> Void)? { get set }
+    
+    func setCoinFavoriteStatus(isFavorite: Bool)
 }
 
 final class DetailedInfoView: UIView {
     public var data: CurrencyListViewModel?
+    private var isFavorite = false
     var requestCryptoData: ((String) -> Void)?
+    var didTapFavoriteButton: (() -> Void)?
     let contentView = UIView()
     var scrollView = UIScrollView()
 
     
     enum Constants {
-        static let priceLabelWidth = 100
+        static let priceLabelWidth = 150
         static let smallSeparatorOffset = 20
         static let separatorOffset = 36
         static let bigSeparatorOFfset = 56
         static let leadingOffset = 20
         static let topPriceOffset = 20
+        static let coinNameHeight = 33
         static let priceHeight = 28
         static let topPercentOffset = 5
         static let percentHeight = 15
@@ -90,6 +96,24 @@ final class DetailedInfoView: UIView {
         label.textColor = .systemGreen
         return label
     }()
+    
+    private let coinName: UILabel = {
+        let label = UILabel()
+        label.font = AppFonts.medium30.font
+        label.text = "BTC"
+        label.backgroundColor = Colors.backgroundBlue.value
+        label.textColor = .white
+        return label
+    }()
+    
+    private lazy var favoriteButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "yellowStar")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = .white
+        button.addTarget(self, action: #selector(didTapFavoriteButton(_:)), for: .touchUpInside)
+        return button
+    }()
+    
     private let coinPerformanceLabel: UILabel = {
         let label = UILabel()
         label.font = AppFonts.medium20.font
@@ -290,9 +314,18 @@ extension DetailedInfoView: IDetailedInfoView {
         self.atNumberLabel.text = data.at
         self.daysSinceNumberLabel.text = data.daysSince
         self.percentDownNumberLabel.text = data.percentDown
-        self.descriptionLabelText.text = data.infoText
+        self.descriptionLabelText.text = data.infoText.htmlToString
     }
-
+    
+    func setCoinFavoriteStatus(isFavorite: Bool) {
+        self.isFavorite = isFavorite
+        
+        if isFavorite {
+            favoriteButton.tintColor = .yellow
+        } else {
+            favoriteButton.tintColor = .white
+        }
+    }
 }
 
 private extension DetailedInfoView {
@@ -301,6 +334,8 @@ private extension DetailedInfoView {
         self.backgroundColor = Colors.backgroundBlue.value
         configurePriceLabel()
         configurePercentLabel()
+        configureCoinNameLabel()
+        configureFavoriteButton()
         configureCoinPerformanceLabel()
         configureHigh24Label()
         configureHigh24NumberLabel()
@@ -323,18 +358,42 @@ private extension DetailedInfoView {
         contentView.addSubview(priceLabel)
         self.priceLabel.snp.makeConstraints { make in
             make.top.equalTo(contentView.safeAreaLayoutGuide).offset(Constants.separatorOffset)
-            make.leading.trailing.equalToSuperview().inset(Constants.leadingOffset)
+            make.leading.equalToSuperview().offset(Constants.leadingOffset)
             make.height.equalTo(Constants.priceHeight)
+            make.width.equalTo(Constants.priceLabelWidth)
         }
     }
     func configurePercentLabel() {
         contentView.addSubview(percentLabel)
         self.percentLabel.snp.makeConstraints { make in
             make.top.equalTo(self.priceLabel.snp.bottom).offset(Constants.topPercentOffset)
-            make.leading.trailing.equalToSuperview().inset(Constants.leadingOffset)
+            make.leading.equalToSuperview().offset(Constants.leadingOffset)
+            make.trailing.equalTo(priceLabel.snp.trailing)
             make.height.equalTo(Constants.percentHeight)
         }
     }
+    
+    func configureCoinNameLabel() {
+        contentView.addSubview(coinName)
+        self.coinName.snp.makeConstraints { make in
+            make.top.equalTo(priceLabel.snp.top)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(Constants.coinNameHeight)
+        }
+    }
+    
+    func configureFavoriteButton() {
+        contentView.addSubview(favoriteButton)
+        favoriteButton.snp.makeConstraints { make in
+            make.top.equalTo(contentView.safeAreaLayoutGuide).offset(Constants.separatorOffset)
+//            make.leading.equalToSuperview().inset(Constants.leadingOffset)
+//            make.bottom.equalTo(self.percentLabel.snp.bottom)
+            make.trailing.equalToSuperview().inset(Constants.leadingOffset)
+            make.width.equalTo(Constants.coinNameHeight)
+            make.height.equalTo(Constants.coinNameHeight)
+        }
+    }
+    
     func configureCoinPerformanceLabel() {
         contentView.addSubview(coinPerformanceLabel)
         self.coinPerformanceLabel.snp.makeConstraints { make in
@@ -475,5 +534,10 @@ private extension DetailedInfoView {
         contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
         contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+    }
+    
+    @objc
+    func didTapFavoriteButton(_ sender: UIButton) {
+        didTapFavoriteButton?()
     }
 }

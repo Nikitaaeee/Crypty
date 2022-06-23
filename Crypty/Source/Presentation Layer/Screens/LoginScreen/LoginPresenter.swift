@@ -12,9 +12,14 @@ protocol ILoginPresenter: AnyObject {
     var ui: ILoginView? { get set }
 }
 
+protocol ILoginOutput: AnyObject {
+    func didLogin()
+}
+
 final class LoginPresenter {
     
     weak var ui: ILoginView?
+    weak var output: ILoginOutput?
     private var interactor : ILoginInteractor
     private var router: ILoginRouter
     private var currentWeatherViewModel: LoginViewModel?
@@ -40,14 +45,10 @@ extension LoginPresenter: ILoginPresenter {
             guard let self = self else { return }
             self.ui?.setLoading(false)
             if status {
-                self.router.routeToListScreen()
+                self.output?.didLogin()
             } else {
                 self.router.didRequestAlert(title: "Error", message: "Wrong email or password")
             }
         }
-    }
-        
-    func routeToListScreen() {
-        router.routeToListScreen()
     }
 }

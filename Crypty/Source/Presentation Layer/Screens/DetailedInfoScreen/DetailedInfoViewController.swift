@@ -29,31 +29,21 @@ final class DetailedInfoViewController: UIViewController {
     
     override func loadView() {
         self.view = currencyView
-        configureNavBar()
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    func configureNavBar() {
-//        navigationItem.hidesSearchBarWhenScrolling = true
-        navigationItem.titleView?.backgroundColor = Colors.backgroundBlue.value
-        navigationController?.navigationBar.tintColor = .white
-        navigationItem.titleView?.tintColor = Colors.purple.value
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "yellowStar"),
-                                                            style: .plain,
-                                                            target: self,
-                                                            action: #selector(addToFav))
-    }
-    @objc func addToFav() {
-        
+        configureView()
     }
 }
 
 
 extension DetailedInfoViewController {
     func configureView() {
+        currencyView.didTapFavoriteButton = { [weak self] in
+            self?.presenter?.didTapFavoriteButton()
+        }
 //        currencyView.data = dto?.data
     }
 }

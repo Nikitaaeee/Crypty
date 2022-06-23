@@ -92,11 +92,24 @@ extension CurrencyListCell {
         self.fullNameLabel.text = model.currencyFullName
         self.priceLabel.text = model.price
         self.percentLabel.text = model.percent
-        guard let data = model.image else { return }
+        checkDiff(for: model.percent)
         self.coinImageView.url = model.image
-
     }
+    
+    func checkDiff(for percent: String) {
+        let percentDouble = Double(percent)
+        guard let percentDouble = percentDouble else { return }
+        if percentDouble < 0 {
+            percentLabel.textColor = .red
+        } else if percentDouble > 0 {
+            percentLabel.textColor = .green
+        } else {
+            percentLabel.textColor = .white
+        }
+    }
+
 }
+
 
 private extension CurrencyListCell {
     

@@ -13,13 +13,24 @@ protocol ICurrencyListRouter: AnyObject {
 
 final class CurrencyListRouter {
     weak var vc: UIViewController?
+    
+    private let serviceAssembly: IServiceAssembly
+    
+    init(serviceAssembly: IServiceAssembly) {
+        self.serviceAssembly = serviceAssembly
+    }
 //    var dtoModel: CryptoDTO()?
 }
 
 extension CurrencyListRouter: ICurrencyListRouter {
     
     func goToSelecterRow(for datum: Datum) {
-        let destVC = DetailedInfoAssembly.build(diManager: .init(), datum: datum)
-        self.vc?.navigationController?.pushViewController(destVC, animated: true)
+        let builder = DetailedInfoBuilder(
+            networkService: serviceAssembly.networkService,
+            favoriteCryptoService: serviceAssembly.favoriteCryptoService,
+            datum: datum
+        )
+
+        vc?.navigationController?.pushViewController(builder.build(), animated: true)
     }
 }

@@ -11,21 +11,26 @@ import UIKit
 protocol ICurrencyListView: AnyObject {
     func getData(data: [CurrencyListViewModel])
     var didSelectRowAt: ((String) -> ())? { get set }
+    var didTapFavoriteButton: ((Bool) -> Void)? { get set }
 }
 
 final class CurrencyListView: UIView {
     
+    private var isFavoriteChecked = false
+
     public var data: [CurrencyListViewModel]?
     private var tableView = UITableView()
     var didSelectRowAt: ((String) -> ())?
+    var didTapFavoriteButton: ((Bool) -> Void)?
     var dataSource = CurrencyListDataSoruce()
     
     private enum Constants {
-        static let marketLabelHeight = 64
+        static let buttonWidth = 40
+        static let marketLabelHeight = 50
         static let marketLabelOffset = 20
         static let sortButtonTrailing = 10
         static let sortButtonLeading = 50
-        static let sortButtonHeight = 22
+        static let sortButtonHeight = 30
         static let sortButtonCornerRadius: CGFloat = 12
         static let tableViewCellHeight: CGFloat = 70
     }
@@ -43,12 +48,12 @@ final class CurrencyListView: UIView {
         return label
     }()
     
-    private let sortButton: UIButton = {
+    private let favButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = Constants.sortButtonCornerRadius
         button.backgroundColor = Colors.backgroundAlmostBlack.value
-        button.setTitle("Hot↓", for: .normal)
-        button.titleLabel?.font =  AppFonts.semibold16.font
+        button.setTitle("★", for: .normal)
+        button.addTarget(self, action: #selector(didTapFavoriteButton(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -65,7 +70,7 @@ final class CurrencyListView: UIView {
     func setupView() {
         self.backgroundColor = Colors.backgroundBlue.value
         setupMarketLabel()
-        setupSortButtonConstraints()
+        setupFavButtonConstraints()
         setupTableViewConstraints()
     }
     
@@ -78,12 +83,12 @@ final class CurrencyListView: UIView {
         }
     }
     
-    func setupSortButtonConstraints() {
-        self.addSubview(self.sortButton)
-        self.sortButton.snp.makeConstraints { make in
+    func setupFavButtonConstraints() {
+        self.addSubview(self.favButton)
+        self.favButton.snp.makeConstraints { make in
             make.top.equalTo(self.marketLabel.snp.bottom)
-            make.leading.equalTo(marketLabel.snp.trailing).inset(Constants.sortButtonLeading)
             make.trailing.equalToSuperview().inset(Constants.sortButtonTrailing)
+            make.width.equalTo(Constants.buttonWidth)
             make.height.equalTo(Constants.sortButtonHeight)
         }
     }
@@ -92,7 +97,7 @@ final class CurrencyListView: UIView {
         self.addSubview(self.tableView)
         self.tableView.backgroundColor = Colors.backgroundBlue.value
         self.tableView.snp.makeConstraints { make in
-            make.top.equalTo(self.sortButton.snp.bottom)
+            make.top.equalTo(self.favButton.snp.bottom)
             make.bottom.equalTo(self)
             make.leading.trailing.equalToSuperview()
         }
@@ -103,6 +108,23 @@ final class CurrencyListView: UIView {
         self.tableView.dataSource = dataSource
         self.tableView.separatorStyle = .none
         self.tableView.register(CurrencyListCell.self, forCellReuseIdentifier: CurrencyListCell.id)
+    }
+    
+    // MARK: - Actions
+    
+    @objc
+    func didTapFavoriteButton(_ sender: UIButton) {
+        isFavoriteChecked.toggle()
+        
+        if isFavoriteChecked {
+            sender.backgroundColor = .white
+            sender.setTitleColor(Colors.backgroundAlmostBlack.value, for: .normal)
+        } else {
+            sender.backgroundColor = Colors.backgroundAlmostBlack.value
+            sender.setTitleColor(.white, for: .normal)
+        }
+        
+        didTapFavoriteButton?(isFavoriteChecked)
     }
 }
 
