@@ -8,22 +8,15 @@
 import Foundation
 
 class NumberConverter {
-//    static func converter(number: Double) -> String{
-//        let currencyFormatter = NumberFormatter()
-//        currencyFormatter.usesGroupingSeparator = true
-//        currencyFormatter.numberStyle = .currency
-//        currencyFormatter.locale = Locale.current
-//        return currencyFormatter.string(from: NSNumber(value: number))!
-//    }
     static func converter(number: Double) -> String{
-            let numberFormatter = NumberFormatter()
-            numberFormatter.groupingSeparator = ","
-            numberFormatter.groupingSize = 3
-            numberFormatter.usesGroupingSeparator = true
-            numberFormatter.decimalSeparator = "."
-            numberFormatter.numberStyle = .decimal
-            numberFormatter.maximumFractionDigits = 2
-            return numberFormatter.string(from: number as NSNumber)!
+        var stringNubmer = ""
+        if number <= 0.001 {
+            stringNubmer = "$ " + String(format: "%.6f", number)
+        } else if number <= 1 {
+            stringNubmer = "$ " + String(format: "%.3f", number)
+        } else {
+            stringNubmer = "$ " + String(format: "%.1f", number)
         }
-   
+        return stringNubmer
+    }
 }

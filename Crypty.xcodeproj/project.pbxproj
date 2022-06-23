@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4801C2DF2860EE9D0033C8CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C2DE2860EE9D0033C8CC /* AppDelegate.swift */; };
 		4801C2E12860EE9D0033C8CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C2E02860EE9D0033C8CC /* SceneDelegate.swift */; };
-		4801C2E62860EE9D0033C8CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4801C2E42860EE9D0033C8CC /* Main.storyboard */; };
 		4801C2E82860EE9E0033C8CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4801C2E72860EE9E0033C8CC /* Assets.xcassets */; };
 		4801C2EB2860EE9E0033C8CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4801C2E92860EE9E0033C8CC /* LaunchScreen.storyboard */; };
 		4801C2F32861CD3A0033C8CC /* CurrencyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C2F22861CD3A0033C8CC /* CurrencyListViewController.swift */; };
@@ -27,7 +26,6 @@
 		4801C3242861E7BD0033C8CC /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C3232861E7BD0033C8CC /* AppFonts.swift */; };
 		4801C3262861EF2E0033C8CC /* RobotoMono-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4801C3252861EF2E0033C8CC /* RobotoMono-SemiBold.ttf */; };
 		4801C3282861F7D30033C8CC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C3272861F7D30033C8CC /* Colors.swift */; };
-		4801C32B2861FAE70033C8CC /* DisegnableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C32A2861FAE70033C8CC /* DisegnableTextField.swift */; };
 		4801C32D286226B80033C8CC /* CurrencyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C32C286226B80033C8CC /* CurrencyListView.swift */; };
 		4801C32F286226C10033C8CC /* CurrencyListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C32E286226C00033C8CC /* CurrencyListPresenter.swift */; };
 		4801C331286226CB0033C8CC /* CurrencyListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C330286226CB0033C8CC /* CurrencyListInteractor.swift */; };
@@ -48,16 +46,18 @@
 		4801C355286357B30033C8CC /* CryptoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C354286357B30033C8CC /* CryptoDTO.swift */; };
 		4801C35728635C430033C8CC /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C35628635C430033C8CC /* AuthenticationService.swift */; };
 		4801C359286360E90033C8CC /* DIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C358286360E90033C8CC /* DIManager.swift */; };
-		4801C35B2863BDEA0033C8CC /* CryptoDTOtwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C35A2863BDEA0033C8CC /* CryptoDTOtwo.swift */; };
 		4801C35D2863D2920033C8CC /* NumberConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C35C2863D2920033C8CC /* NumberConverter.swift */; };
 		4801C35F2863D4AF0033C8CC /* PercentConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C35E2863D4AF0033C8CC /* PercentConverter.swift */; };
+		4801C36328649A350033C8CC /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C36228649A350033C8CC /* Coordinator.swift */; };
+		4801C36528649A7F0033C8CC /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C36428649A7F0033C8CC /* AppCoordinator.swift */; };
+		4801C36728649AED0033C8CC /* Coordinatorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C36628649AED0033C8CC /* Coordinatorable.swift */; };
+		4801C3692864BD230033C8CC /* LoadableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C3682864BD230033C8CC /* LoadableImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4801C2DB2860EE9D0033C8CC /* Crypty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crypty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4801C2DE2860EE9D0033C8CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4801C2E02860EE9D0033C8CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4801C2E52860EE9D0033C8CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4801C2E72860EE9E0033C8CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4801C2EA2860EE9E0033C8CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4801C2EC2860EE9E0033C8CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,7 +75,6 @@
 		4801C3232861E7BD0033C8CC /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
 		4801C3252861EF2E0033C8CC /* RobotoMono-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoMono-SemiBold.ttf"; path = "../../../../../../../Downloads/Overpass,Roboto,Roboto_Mono/Roboto_Mono/static/RobotoMono-SemiBold.ttf"; sourceTree = "<group>"; };
 		4801C3272861F7D30033C8CC /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		4801C32A2861FAE70033C8CC /* DisegnableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisegnableTextField.swift; sourceTree = "<group>"; };
 		4801C32C286226B80033C8CC /* CurrencyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListView.swift; sourceTree = "<group>"; };
 		4801C32E286226C00033C8CC /* CurrencyListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListPresenter.swift; sourceTree = "<group>"; };
 		4801C330286226CB0033C8CC /* CurrencyListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListInteractor.swift; sourceTree = "<group>"; };
@@ -96,9 +95,12 @@
 		4801C354286357B30033C8CC /* CryptoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDTO.swift; sourceTree = "<group>"; };
 		4801C35628635C430033C8CC /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		4801C358286360E90033C8CC /* DIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIManager.swift; sourceTree = "<group>"; };
-		4801C35A2863BDEA0033C8CC /* CryptoDTOtwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDTOtwo.swift; sourceTree = "<group>"; };
 		4801C35C2863D2920033C8CC /* NumberConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberConverter.swift; sourceTree = "<group>"; };
 		4801C35E2863D4AF0033C8CC /* PercentConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentConverter.swift; sourceTree = "<group>"; };
+		4801C36228649A350033C8CC /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		4801C36428649A7F0033C8CC /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		4801C36628649AED0033C8CC /* Coordinatorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatorable.swift; sourceTree = "<group>"; };
+		4801C3682864BD230033C8CC /* LoadableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,18 +134,9 @@
 		4801C2DD2860EE9D0033C8CC /* Crypty */ = {
 			isa = PBXGroup;
 			children = (
-				4801C33928622ADA0033C8CC /* Services */,
-				4801C3292861FACC0033C8CC /* ReusableViews */,
-				4801C2F72861DA680033C8CC /* LoginScreen */,
-				4801C2F82861DC980033C8CC /* CurrencyListScreen */,
-				4801C2F92861DCAA0033C8CC /* DetailedInfoScreen */,
-				4801C2DE2860EE9D0033C8CC /* AppDelegate.swift */,
-				4801C2E02860EE9D0033C8CC /* SceneDelegate.swift */,
+				4801C36E2864E1490033C8CC /* Resources */,
+				4801C36F2864E1590033C8CC /* Source */,
 				4801C3092861E67D0033C8CC /* SupportingFiles */,
-				4801C2E42860EE9D0033C8CC /* Main.storyboard */,
-				4801C2E72860EE9E0033C8CC /* Assets.xcassets */,
-				4801C2E92860EE9E0033C8CC /* LaunchScreen.storyboard */,
-				4801C2EC2860EE9E0033C8CC /* Info.plist */,
 			);
 			path = Crypty;
 			sourceTree = "<group>";
@@ -214,14 +207,6 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		4801C3292861FACC0033C8CC /* ReusableViews */ = {
-			isa = PBXGroup;
-			children = (
-				4801C32A2861FAE70033C8CC /* DisegnableTextField.swift */,
-			);
-			path = ReusableViews;
-			sourceTree = "<group>";
-		};
 		4801C33928622ADA0033C8CC /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				4801C32C286226B80033C8CC /* CurrencyListView.swift */,
+				4801C3682864BD230033C8CC /* LoadableImageView.swift */,
 				4801C33A28622DF70033C8CC /* CurrencyListCell.swift */,
 				4801C33C28622E080033C8CC /* CurrencyListDataSource.swift */,
 			);
@@ -247,9 +233,74 @@
 			isa = PBXGroup;
 			children = (
 				4801C354286357B30033C8CC /* CryptoDTO.swift */,
-				4801C35A2863BDEA0033C8CC /* CryptoDTOtwo.swift */,
 			);
 			path = DTO;
+			sourceTree = "<group>";
+		};
+		4801C36028649A0C0033C8CC /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				4801C36228649A350033C8CC /* Coordinator.swift */,
+				4801C36428649A7F0033C8CC /* AppCoordinator.swift */,
+				4801C36628649AED0033C8CC /* Coordinatorable.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		4801C36A2864E0FE0033C8CC /* Presentation Layer */ = {
+			isa = PBXGroup;
+			children = (
+				4801C36028649A0C0033C8CC /* Coordinators */,
+				4801C36D2864E1280033C8CC /* Screens */,
+			);
+			path = "Presentation Layer";
+			sourceTree = "<group>";
+		};
+		4801C36B2864E10B0033C8CC /* Service Layer */ = {
+			isa = PBXGroup;
+			children = (
+				4801C33928622ADA0033C8CC /* Services */,
+			);
+			path = "Service Layer";
+			sourceTree = "<group>";
+		};
+		4801C36C2864E1180033C8CC /* Core Layer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Core Layer";
+			sourceTree = "<group>";
+		};
+		4801C36D2864E1280033C8CC /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				4801C2F82861DC980033C8CC /* CurrencyListScreen */,
+				4801C2F92861DCAA0033C8CC /* DetailedInfoScreen */,
+				4801C2F72861DA680033C8CC /* LoginScreen */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		4801C36E2864E1490033C8CC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4801C2E92860EE9E0033C8CC /* LaunchScreen.storyboard */,
+				4801C2E72860EE9E0033C8CC /* Assets.xcassets */,
+				4801C2EC2860EE9E0033C8CC /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4801C36F2864E1590033C8CC /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				4801C2DE2860EE9D0033C8CC /* AppDelegate.swift */,
+				4801C2E02860EE9D0033C8CC /* SceneDelegate.swift */,
+				4801C36C2864E1180033C8CC /* Core Layer */,
+				4801C36A2864E0FE0033C8CC /* Presentation Layer */,
+				4801C36B2864E10B0033C8CC /* Service Layer */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,7 +373,6 @@
 				4801C3172861E6A30033C8CC /* Roboto-Regular.ttf in Resources */,
 				4801C3262861EF2E0033C8CC /* RobotoMono-SemiBold.ttf in Resources */,
 				4801C31E2861E6A30033C8CC /* Roboto-Medium.ttf in Resources */,
-				4801C2E62860EE9D0033C8CC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,14 +384,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4801C34C28625BBA0033C8CC /* DetailedInfoRouter.swift in Sources */,
+				4801C36528649A7F0033C8CC /* AppCoordinator.swift in Sources */,
 				4801C340286232980033C8CC /* NetworkService.swift in Sources */,
 				4801C35F2863D4AF0033C8CC /* PercentConverter.swift in Sources */,
 				4801C359286360E90033C8CC /* DIManager.swift in Sources */,
-				4801C35B2863BDEA0033C8CC /* CryptoDTOtwo.swift in Sources */,
 				4801C3242861E7BD0033C8CC /* AppFonts.swift in Sources */,
 				4801C2FB2861DEE60033C8CC /* LoginAssembly.swift in Sources */,
 				4801C3052861E0440033C8CC /* LoginViewModel.swift in Sources */,
 				4801C34428625B890033C8CC /* DetailedInfoView.swift in Sources */,
+				4801C36328649A350033C8CC /* Coordinator.swift in Sources */,
 				4801C2FD2861DEF30033C8CC /* LoginPresenter.swift in Sources */,
 				4801C334286226D70033C8CC /* CurrencyListRouter.swift in Sources */,
 				4801C2DF2860EE9D0033C8CC /* AppDelegate.swift in Sources */,
@@ -356,33 +407,26 @@
 				4801C342286244130033C8CC /* CurrencyFormatter.swift in Sources */,
 				4801C355286357B30033C8CC /* CryptoDTO.swift in Sources */,
 				4801C338286226F60033C8CC /* CurrencyListAssembly.swift in Sources */,
+				4801C36728649AED0033C8CC /* Coordinatorable.swift in Sources */,
 				4801C331286226CB0033C8CC /* CurrencyListInteractor.swift in Sources */,
 				4801C32D286226B80033C8CC /* CurrencyListView.swift in Sources */,
 				4801C35028625BD10033C8CC /* DetailedInfoViewController.swift in Sources */,
 				4801C2F52861DA130033C8CC /* LoginViewController.swift in Sources */,
 				4801C3032861DF140033C8CC /* LoginView.swift in Sources */,
 				4801C35D2863D2920033C8CC /* NumberConverter.swift in Sources */,
+				4801C3692864BD230033C8CC /* LoadableImageView.swift in Sources */,
 				4801C34828625BAA0033C8CC /* DetailedInfoInteractor.swift in Sources */,
 				4801C34628625BA00033C8CC /* DetailedInfoAssembly.swift in Sources */,
 				4801C2E12860EE9D0033C8CC /* SceneDelegate.swift in Sources */,
 				4801C32F286226C10033C8CC /* CurrencyListPresenter.swift in Sources */,
 				4801C34E28625BC20033C8CC /* DetailedInfoViewModel.swift in Sources */,
 				4801C33D28622E080033C8CC /* CurrencyListDataSource.swift in Sources */,
-				4801C32B2861FAE70033C8CC /* DisegnableTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4801C2E42860EE9D0033C8CC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4801C2E52860EE9D0033C8CC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4801C2E92860EE9E0033C8CC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -517,7 +561,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 629THG8W5C;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Crypty/Info.plist;
+				INFOPLIST_FILE = Crypty/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
