@@ -9,8 +9,6 @@ import Foundation
 
 protocol ICurrencyListInteractor: AnyObject {
     func generateData(completion: @escaping (CryptoDTO?) -> Void)
-    func loadImage(coinName: String, completion: @escaping(Data) -> ())
-
 }
 
 final class CurrencyListInteractor {
@@ -36,17 +34,6 @@ extension CurrencyListInteractor: ICurrencyListInteractor {
                     print("Presenter: \(error.localizedDescription)")
                     completion(nil)
                 }
-            }
-        }
-    }
-    
-    func loadImage(coinName: String, completion: @escaping (Data) -> ()) {
-        networkService.loadCoinImage(coinName: coinName) { (result: Result<Data, Error>) in
-            switch result {
-            case .success(let data):
-                completion(data)
-            case .failure(let error):
-                print(error.localizedDescription)
             }
         }
     }

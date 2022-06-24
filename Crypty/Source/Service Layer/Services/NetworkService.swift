@@ -9,7 +9,6 @@ import Foundation
 
 protocol INetworkService: AnyObject {
     func loadCurrencyList<T:Decodable>(completion: @escaping (Result<T, Error>) -> Void)
-    func loadCoinImage(coinName: String, completion: @escaping(Result<Data, Error>) -> ())
 }
 
 class NetworkService {
@@ -44,20 +43,5 @@ extension NetworkService: INetworkService {
                 }
             }.resume()
         }
-    
-    func loadCoinImage(coinName: String, completion: @escaping(Result<Data, Error>) -> ()) {
-        guard let url = URL(string: Endpoints.urlPath + coinName + Endpoints.urlEndpoint) else { return }
-                let request = URLRequest(url: url)
-                URLSession.shared.downloadTask(with: request) { url, response, error in
-                    if let error = error {
-                        completion(.failure(error))
-                    }
-                    guard let url = url else { return }
-                    if let data = try? Data(contentsOf: url){
-                        completion(.success(data))
-                    }
-                }.resume()
-        }
 }
-    
 
