@@ -13,7 +13,7 @@ protocol ICurrencyListInteractor: AnyObject {
 
 }
 
-class CurrencyListInteractor {
+final class CurrencyListInteractor {
     var networkService: INetworkService
     
     init(networkService: INetworkService) {

@@ -5,11 +5,9 @@
 //  Created by Nikita Kirshin on 21.06.2022.
 //
 
-import Foundation
 import UIKit
 
 protocol IDetailedInfoRouter: AnyObject {
-    
 }
 
 final class DetailedInfoRouter {
@@ -17,5 +15,4 @@ final class DetailedInfoRouter {
 }
 
 extension DetailedInfoRouter: IDetailedInfoRouter{
-    
 }

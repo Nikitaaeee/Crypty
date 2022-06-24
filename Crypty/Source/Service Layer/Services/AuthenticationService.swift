@@ -26,14 +26,16 @@ class AuthenticationService: IAuthenticationService {
                 self?.isAuthorized = true
             }
         } else {
-//            completion(.failure(Error.)
-            
+            completion(.failure(AuthentificationError.invalidCredentials))
         }
     }
     
     func logout(completion: @escaping (Result<Void, Error>) -> Void) {
         isAuthorized = false
-        completion(.success(()))
+        completion(.success(()))}
+    
+    enum AuthentificationError: Error {
+        case invalidCredentials
     }
 }
 

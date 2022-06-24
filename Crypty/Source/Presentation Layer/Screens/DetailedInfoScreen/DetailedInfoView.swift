@@ -50,7 +50,7 @@ final class DetailedInfoView: UIView {
         static let imageBackgroundCornerRadius: CGFloat = 25
         static let crownWidthHeight = 36
 //        static let crownLabelsWidth = 130
-        static let leftStackTopOffset = 8
+        static let leftStackTopOffset = 4
         static let leftStackWidth = 180
         static let allTimeTopPriceWidth = 80
         

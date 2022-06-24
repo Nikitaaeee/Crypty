@@ -14,7 +14,6 @@ extension UITextField {
         case Right
     }
     
-    // add image to textfield
     func withImage(direction: Direction, image: UIImage, colorSeparator: UIColor, colorBorder: UIColor){
         let mainView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 45))
         mainView.layer.cornerRadius = 5
@@ -35,11 +34,11 @@ extension UITextField {
         seperatorView.backgroundColor = colorSeparator
         mainView.addSubview(seperatorView)
         
-        if(Direction.Left == direction){ // image left
+        if(Direction.Left == direction){
             seperatorView.frame = CGRect(x: 45, y: 0, width: 5, height: 45)
             self.leftViewMode = .always
             self.leftView = mainView
-        } else { // image right
+        } else { 
             seperatorView.frame = CGRect(x: 0, y: 0, width: 5, height: 45)
             self.rightViewMode = .always
             self.rightView = mainView

@@ -19,7 +19,6 @@ final class CurrencyListRouter {
     init(serviceAssembly: IServiceAssembly) {
         self.serviceAssembly = serviceAssembly
     }
-//    var dtoModel: CryptoDTO()?
 }
 
 extension CurrencyListRouter: ICurrencyListRouter {
@@ -30,7 +29,6 @@ extension CurrencyListRouter: ICurrencyListRouter {
             favoriteCryptoService: serviceAssembly.favoriteCryptoService,
             datum: datum
         )
-
         vc?.navigationController?.pushViewController(builder.build(), animated: true)
     }
 }

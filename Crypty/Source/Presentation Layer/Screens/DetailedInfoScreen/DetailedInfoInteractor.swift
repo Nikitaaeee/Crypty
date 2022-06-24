@@ -9,8 +9,6 @@ import Foundation
 
 protocol IDetailedInfoInteractor: AnyObject {
     func getData() -> DetailedInfoViewModel
-
-
 }
 
 final class DetailedInfoInteractor {

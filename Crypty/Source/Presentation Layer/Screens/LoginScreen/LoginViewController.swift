@@ -34,8 +34,6 @@ final class LoginViewController: UIViewController {
     
     func configureNavBar() {
         navigationController?.navigationBar.prefersLargeTitles = false
-//        navigationItem.hidesSearchBarWhenScrolling = true
-//        navigationItem.titleView?.backgroundColor = Colors.backgroundBlue.value
         navigationController?.navigationBar.tintColor = Colors.purple.value
         navigationItem.titleView?.tintColor = Colors.backgroundBlue.value
     }

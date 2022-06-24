@@ -10,7 +10,6 @@ import Foundation
 protocol INetworkService: AnyObject {
     func loadCurrencyList<T:Decodable>(completion: @escaping (Result<T, Error>) -> Void)
     func loadCoinImage(coinName: String, completion: @escaping(Result<Data, Error>) -> ())
-    func loadCurrency<T:Decodable>(coinName: String, completion: @escaping (Result<T, Error>) -> Void)
 }
 
 class NetworkService {
@@ -37,25 +36,6 @@ extension NetworkService: INetworkService {
                 guard let data = data else { return }
                 do {
                     print(data)
-                    let newData = try JSONDecoder().decode(T.self, from: data)
-                    completion(.success(newData))
-                }
-                catch let error {
-                    completion(.failure(error))
-                }
-            }.resume()
-        }
-    
-    func loadCurrency<T:Decodable>(coinName: String, completion: @escaping (Result<T, Error>) -> Void) {
-            guard let url = URL(string: Endpoints.url) else { assert(false) }
-            let request = URLRequest(url: url)
-            
-            URLSession.shared.dataTask(with: request) { data, response, error in
-                if let error = error {
-                    completion(.failure(error))
-                }
-                guard let data = data else { return }
-                do {
                     let newData = try JSONDecoder().decode(T.self, from: data)
                     completion(.success(newData))
                 }

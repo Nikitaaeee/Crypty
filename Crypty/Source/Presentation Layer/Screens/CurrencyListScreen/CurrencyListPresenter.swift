@@ -13,7 +13,7 @@ protocol ICurrencyListPresenter: AnyObject {
     func didTapFavoriteButton(isFavoriteChecked: Bool)
 }
 
-class CurrencyListPresenter {
+final class CurrencyListPresenter {
     private var view: ICurrencyListView?
     private var interactor : ICurrencyListInteractor?
     private var router: ICurrencyListRouter?

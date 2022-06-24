@@ -20,8 +20,6 @@ final class ServiceAssembly: IServiceAssembly {
     let networkService: INetworkService = NetworkService()
     let authenticationService: IAuthenticationService = AuthenticationService()
     let favoriteCryptoService: IFavoriteCryptoService = FavoriteCryptoService()
-    
-    // MARK: - Init
-    
+        
     init() { }
 }

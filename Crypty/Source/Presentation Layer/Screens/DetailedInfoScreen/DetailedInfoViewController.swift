@@ -20,7 +20,6 @@ final class DetailedInfoViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         self.presenter = presenter
         presenter.viewDidLoad(view: currencyView)
-
     }
     
     required init?(coder: NSCoder) {
@@ -44,6 +43,5 @@ extension DetailedInfoViewController {
         currencyView.didTapFavoriteButton = { [weak self] in
             self?.presenter?.didTapFavoriteButton()
         }
-//        currencyView.data = dto?.data
     }
 }

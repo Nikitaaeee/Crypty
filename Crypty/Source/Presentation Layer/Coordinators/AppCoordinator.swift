@@ -24,8 +24,6 @@ class AppCoordinator {
     }
 }
 
-// MARK: - ILoginOutput
-
 extension AppCoordinator: ILoginOutput {
     func didLogin() {
         DispatchQueue.main.async { [weak self] in
@@ -33,8 +31,6 @@ extension AppCoordinator: ILoginOutput {
         }
     }
 }
-
-// MARK: - Private
 
 private extension AppCoordinator {
     func presentLoginModule() {

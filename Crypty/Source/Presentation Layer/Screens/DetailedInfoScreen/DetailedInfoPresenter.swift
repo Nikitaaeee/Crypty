@@ -55,7 +55,6 @@ extension DetailedInfoPresenter: IDetailedInfoPresenter {
             isFavorite ?
                 self?.favoriteCryptoService.remove(coin: coinName) :
                 self?.favoriteCryptoService.save(coin: coinName)
-            
             self?.view?.setCoinFavoriteStatus(isFavorite: !isFavorite)
         }
     }

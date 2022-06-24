@@ -13,7 +13,7 @@
 		4801C2EB2860EE9E0033C8CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4801C2E92860EE9E0033C8CC /* LaunchScreen.storyboard */; };
 		4801C2F32861CD3A0033C8CC /* CurrencyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C2F22861CD3A0033C8CC /* CurrencyListViewController.swift */; };
 		4801C2F52861DA130033C8CC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C2F42861DA130033C8CC /* LoginViewController.swift */; };
-		4801C2FB2861DEE60033C8CC /* LoginAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C2FA2861DEE60033C8CC /* LoginAssembly.swift */; };
+		4801C2FB2861DEE60033C8CC /* LoginBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C2FA2861DEE60033C8CC /* LoginBuilder.swift */; };
 		4801C2FD2861DEF30033C8CC /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C2FC2861DEF30033C8CC /* LoginPresenter.swift */; };
 		4801C2FF2861DEFC0033C8CC /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C2FE2861DEFC0033C8CC /* LoginInteractor.swift */; };
 		4801C3012861DF090033C8CC /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C3002861DF090033C8CC /* LoginRouter.swift */; };
@@ -47,7 +47,6 @@
 		4801C359286360E90033C8CC /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C358286360E90033C8CC /* ServiceAssembly.swift */; };
 		4801C35D2863D2920033C8CC /* NumberConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C35C2863D2920033C8CC /* NumberConverter.swift */; };
 		4801C35F2863D4AF0033C8CC /* PercentConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C35E2863D4AF0033C8CC /* PercentConverter.swift */; };
-		4801C36328649A350033C8CC /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C36228649A350033C8CC /* Coordinator.swift */; };
 		4801C36528649A7F0033C8CC /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C36428649A7F0033C8CC /* AppCoordinator.swift */; };
 		4801C3692864BD230033C8CC /* LoadableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C3682864BD230033C8CC /* LoadableImageView.swift */; };
 		4801C3722864E2BC0033C8CC /* StoragePropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C3712864E2BC0033C8CC /* StoragePropertyWrapper.swift */; };
@@ -66,7 +65,7 @@
 		4801C2EC2860EE9E0033C8CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4801C2F22861CD3A0033C8CC /* CurrencyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListViewController.swift; sourceTree = "<group>"; };
 		4801C2F42861DA130033C8CC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		4801C2FA2861DEE60033C8CC /* LoginAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAssembly.swift; sourceTree = "<group>"; };
+		4801C2FA2861DEE60033C8CC /* LoginBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBuilder.swift; sourceTree = "<group>"; };
 		4801C2FC2861DEF30033C8CC /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		4801C2FE2861DEFC0033C8CC /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		4801C3002861DF090033C8CC /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
@@ -99,7 +98,6 @@
 		4801C358286360E90033C8CC /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
 		4801C35C2863D2920033C8CC /* NumberConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberConverter.swift; sourceTree = "<group>"; };
 		4801C35E2863D4AF0033C8CC /* PercentConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentConverter.swift; sourceTree = "<group>"; };
-		4801C36228649A350033C8CC /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		4801C36428649A7F0033C8CC /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		4801C3682864BD230033C8CC /* LoadableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableImageView.swift; sourceTree = "<group>"; };
 		4801C3712864E2BC0033C8CC /* StoragePropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoragePropertyWrapper.swift; sourceTree = "<group>"; };
@@ -150,7 +148,7 @@
 		4801C2F72861DA680033C8CC /* LoginScreen */ = {
 			isa = PBXGroup;
 			children = (
-				4801C2FA2861DEE60033C8CC /* LoginAssembly.swift */,
+				4801C2FA2861DEE60033C8CC /* LoginBuilder.swift */,
 				4801C3022861DF140033C8CC /* LoginView.swift */,
 				4801C2F42861DA130033C8CC /* LoginViewController.swift */,
 				4801C2FE2861DEFC0033C8CC /* LoginInteractor.swift */,
@@ -244,7 +242,6 @@
 		4801C36028649A0C0033C8CC /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				4801C36228649A350033C8CC /* Coordinator.swift */,
 				4801C36428649A7F0033C8CC /* AppCoordinator.swift */,
 			);
 			path = Coordinators;
@@ -431,10 +428,9 @@
 				4801C35F2863D4AF0033C8CC /* PercentConverter.swift in Sources */,
 				4801C359286360E90033C8CC /* ServiceAssembly.swift in Sources */,
 				4801C3242861E7BD0033C8CC /* AppFonts.swift in Sources */,
-				4801C2FB2861DEE60033C8CC /* LoginAssembly.swift in Sources */,
+				4801C2FB2861DEE60033C8CC /* LoginBuilder.swift in Sources */,
 				4801C3052861E0440033C8CC /* LoginViewModel.swift in Sources */,
 				4801C34428625B890033C8CC /* DetailedInfoView.swift in Sources */,
-				4801C36328649A350033C8CC /* Coordinator.swift in Sources */,
 				4801C2FD2861DEF30033C8CC /* LoginPresenter.swift in Sources */,
 				4801C334286226D70033C8CC /* CurrencyListRouter.swift in Sources */,
 				4801C2DF2860EE9D0033C8CC /* AppDelegate.swift in Sources */,

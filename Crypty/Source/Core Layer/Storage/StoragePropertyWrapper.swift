@@ -14,10 +14,8 @@ struct UserDefaultsStorage<T: Codable> {
             guard let data = userDefaults.data(forKey: key) else {
                 return defaultValue
             }
-            
             do {
                 let decoder = JSONDecoder()
-
                 return try decoder.decode(T.self, from: data)
             } catch {
                 fatalError(error.localizedDescription)
