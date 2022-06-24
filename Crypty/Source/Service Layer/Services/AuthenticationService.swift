@@ -18,7 +18,7 @@ protocol IAuthenticationService {
 class AuthenticationService: IAuthenticationService {
     @UserDefaultsStorage(key: "AuthenticationService.isAuthorized", default: false)
     private(set) var isAuthorized: Bool
-
+    
     func login(email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void) {
         if mockEmail == email && mockPassword == password {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
@@ -26,7 +26,8 @@ class AuthenticationService: IAuthenticationService {
                 self?.isAuthorized = true
             }
         } else {
-            completion(.success(()))
+//            completion(.failure(Error.)
+            
         }
     }
     

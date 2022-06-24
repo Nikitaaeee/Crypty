@@ -181,7 +181,7 @@ final class DetailedInfoView: UIView {
         let label = UILabel()
         label.font = AppFonts.medium20.font
         label.text = "$0,000.01"
-        label.textColor = Colors.purple.value
+        label.textColor = .yellow
         label.textAlignment = .center
         return label
     }()
@@ -253,7 +253,7 @@ final class DetailedInfoView: UIView {
         label.font = AppFonts.medium16.font
         label.text = "1"
         label.backgroundColor = Colors.backgroundBlue.value
-        label.textColor = .lightGray
+        label.textColor = .systemRed
         return label
     }()
     
@@ -305,8 +305,10 @@ final class DetailedInfoView: UIView {
 extension DetailedInfoView: IDetailedInfoView {
     
     func getData(data: DetailedInfoViewModel) {
+        self.coinName.text = data.symbol
         self.priceLabel.text = data.price
         self.percentLabel.text = data.percent
+        checkDiff(for: data.percent)
         self.priceHigh24Label.text = data.high24
         self.priceLow24Label.text = data.low24
         self.rankNumberLabel.text = String(data.rating)
@@ -315,6 +317,18 @@ extension DetailedInfoView: IDetailedInfoView {
         self.daysSinceNumberLabel.text = data.daysSince
         self.percentDownNumberLabel.text = data.percentDown
         self.descriptionLabelText.text = data.infoText.htmlToString
+    }
+    
+    func checkDiff(for percent: String) {
+        let percentDouble = Double(percent)
+        guard let percentDouble = percentDouble else { return }
+        if percentDouble < 0 {
+            percentLabel.textColor = .red
+        } else if percentDouble > 0 {
+            percentLabel.textColor = .green
+        } else {
+            percentLabel.textColor = .white
+        }
     }
     
     func setCoinFavoriteStatus(isFavorite: Bool) {

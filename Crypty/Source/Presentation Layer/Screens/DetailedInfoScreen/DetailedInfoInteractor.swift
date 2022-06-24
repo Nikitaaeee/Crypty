@@ -28,24 +28,4 @@ extension DetailedInfoInteractor: IDetailedInfoInteractor {
         let model = DetailedInfoViewModel(from: datum)
     return model
     }
-    
-//    func generateData(coinName: String, completion: @escaping (CryptoDTO?) -> Void) {
-//        networkService.loadCurrency(coinName: coinName) { (result: Result<CryptoDTO, Error>) in
-//            switch result {
-//            case .success(let model):
-//                print("NOOOORMM")
-//                DispatchQueue.main.async {
-//                    completion(model)
-//                }
-//            case .failure(let error):
-//                DispatchQueue.main.async {
-//                    print(String(describing: error))
-//                    print("Presenter: \(error.localizedDescription)")
-//                    completion(nil)
-//                }
-//            }
-//        }
-//    }
-
-
 }

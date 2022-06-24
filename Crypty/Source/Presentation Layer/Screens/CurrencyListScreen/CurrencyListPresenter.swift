@@ -46,7 +46,7 @@ extension CurrencyListPresenter: ICurrencyListPresenter {
         let int = dto.data.count - 1
         for i in 0...int {
             var model = CurrencyListViewModel(from: dto.data[i])
-            model.image = URL(string:  NetworkService.Endpoints.url1 + model.currencyShortName.lowercased() + NetworkService.Endpoints.url2)
+            model.image = URL(string:  NetworkService.Endpoints.urlPath + model.currencyShortName.lowercased() + NetworkService.Endpoints.urlEndpoint)
             entity.append(model)
         }
         return entity

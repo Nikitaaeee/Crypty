@@ -45,9 +45,9 @@ extension DetailedInfoViewModel {
         self.low24 = NumberConverter.converter(number: low24)
         self.rating = String(rating)
         self.allTimeHigh = NumberConverter.converter(number: allTimeHigh)
-        self.at = at
+        self.at = DateConverter.showShortDay(at)
         self.daysSince = String(daysSince)
-        self.percentDown = String(format: "%.3f", percentDown)
+        self.percentDown = "- " + String(format: "%.3f", percentDown) + "%"
         self.infoText = infoText
     }
 }

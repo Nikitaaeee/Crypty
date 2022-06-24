@@ -17,8 +17,10 @@ class NetworkService {
     static var dto: CryptoDTO?
     enum Endpoints {
         static let url = "https://data.messari.io/api/v2/assets"
-        static let url1 = "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/32/color/"
-        static let url2 = ".png"
+        static let urlPath = "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/32/color/"
+        static let urlEndpoint = ".png"
+        
+        static let mockImageUrl = "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/32/color/ella.png"
     }
 }
 
@@ -64,7 +66,7 @@ extension NetworkService: INetworkService {
         }
     
     func loadCoinImage(coinName: String, completion: @escaping(Result<Data, Error>) -> ()) {
-        guard let url = URL(string: Endpoints.url1 + coinName + Endpoints.url2) else { return }
+        guard let url = URL(string: Endpoints.urlPath + coinName + Endpoints.urlEndpoint) else { return }
                 let request = URLRequest(url: url)
                 URLSession.shared.downloadTask(with: request) { url, response, error in
                     if let error = error {

@@ -35,7 +35,6 @@
 		4801C33B28622DF70033C8CC /* CurrencyListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C33A28622DF70033C8CC /* CurrencyListCell.swift */; };
 		4801C33D28622E080033C8CC /* CurrencyListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C33C28622E080033C8CC /* CurrencyListDataSource.swift */; };
 		4801C340286232980033C8CC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C33F286232980033C8CC /* NetworkService.swift */; };
-		4801C342286244130033C8CC /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C341286244130033C8CC /* CurrencyFormatter.swift */; };
 		4801C34428625B890033C8CC /* DetailedInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C34328625B890033C8CC /* DetailedInfoView.swift */; };
 		4801C34628625BA00033C8CC /* DetailedInfoBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C34528625BA00033C8CC /* DetailedInfoBuilder.swift */; };
 		4801C34828625BAA0033C8CC /* DetailedInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C34728625BAA0033C8CC /* DetailedInfoInteractor.swift */; };
@@ -54,6 +53,8 @@
 		4801C3722864E2BC0033C8CC /* StoragePropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C3712864E2BC0033C8CC /* StoragePropertyWrapper.swift */; };
 		4801C3762864F2C30033C8CC /* FavoriteCryptoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C3752864F2C30033C8CC /* FavoriteCryptoService.swift */; };
 		4801C3792864FF730033C8CC /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C3782864FF730033C8CC /* String+Extensions.swift */; };
+		4801C37E286526680033C8CC /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C37D286526680033C8CC /* DateFormatter.swift */; };
+		48C213A92865BD820033C4F1 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C213A82865BD820033C4F1 /* UITextField+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,7 +87,6 @@
 		4801C33A28622DF70033C8CC /* CurrencyListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListCell.swift; sourceTree = "<group>"; };
 		4801C33C28622E080033C8CC /* CurrencyListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListDataSource.swift; sourceTree = "<group>"; };
 		4801C33F286232980033C8CC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		4801C341286244130033C8CC /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 		4801C34328625B890033C8CC /* DetailedInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedInfoView.swift; sourceTree = "<group>"; };
 		4801C34528625BA00033C8CC /* DetailedInfoBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedInfoBuilder.swift; sourceTree = "<group>"; };
 		4801C34728625BAA0033C8CC /* DetailedInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedInfoInteractor.swift; sourceTree = "<group>"; };
@@ -105,6 +105,8 @@
 		4801C3712864E2BC0033C8CC /* StoragePropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoragePropertyWrapper.swift; sourceTree = "<group>"; };
 		4801C3752864F2C30033C8CC /* FavoriteCryptoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCryptoService.swift; sourceTree = "<group>"; };
 		4801C3782864FF730033C8CC /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		4801C37D286526680033C8CC /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		48C213A82865BD820033C4F1 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,10 +193,8 @@
 			isa = PBXGroup;
 			children = (
 				4801C30A2861E68F0033C8CC /* Fonts */,
-				4801C3272861F7D30033C8CC /* Colors.swift */,
-				4801C341286244130033C8CC /* CurrencyFormatter.swift */,
-				4801C35C2863D2920033C8CC /* NumberConverter.swift */,
-				4801C35E2863D4AF0033C8CC /* PercentConverter.swift */,
+				48C213AA2865C72F0033C4F1 /* Colors */,
+				4801C37A2865240F0033C8CC /* Formatters */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -279,9 +279,9 @@
 		4801C36D2864E1280033C8CC /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				4801C2F72861DA680033C8CC /* LoginScreen */,
 				4801C2F82861DC980033C8CC /* CurrencyListScreen */,
 				4801C2F92861DCAA0033C8CC /* DetailedInfoScreen */,
-				4801C2F72861DA680033C8CC /* LoginScreen */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -321,8 +321,27 @@
 			isa = PBXGroup;
 			children = (
 				4801C3782864FF730033C8CC /* String+Extensions.swift */,
+				48C213A82865BD820033C4F1 /* UITextField+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4801C37A2865240F0033C8CC /* Formatters */ = {
+			isa = PBXGroup;
+			children = (
+				4801C37D286526680033C8CC /* DateFormatter.swift */,
+				4801C35C2863D2920033C8CC /* NumberConverter.swift */,
+				4801C35E2863D4AF0033C8CC /* PercentConverter.swift */,
+			);
+			path = Formatters;
+			sourceTree = "<group>";
+		};
+		48C213AA2865C72F0033C4F1 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				4801C3272861F7D30033C8CC /* Colors.swift */,
+			);
+			path = Colors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,6 +427,7 @@
 				4801C34C28625BBA0033C8CC /* DetailedInfoRouter.swift in Sources */,
 				4801C36528649A7F0033C8CC /* AppCoordinator.swift in Sources */,
 				4801C340286232980033C8CC /* NetworkService.swift in Sources */,
+				48C213A92865BD820033C4F1 /* UITextField+Extensions.swift in Sources */,
 				4801C35F2863D4AF0033C8CC /* PercentConverter.swift in Sources */,
 				4801C359286360E90033C8CC /* ServiceAssembly.swift in Sources */,
 				4801C3242861E7BD0033C8CC /* AppFonts.swift in Sources */,
@@ -427,9 +447,9 @@
 				4801C3282861F7D30033C8CC /* Colors.swift in Sources */,
 				4801C3792864FF730033C8CC /* String+Extensions.swift in Sources */,
 				4801C2F32861CD3A0033C8CC /* CurrencyListViewController.swift in Sources */,
-				4801C342286244130033C8CC /* CurrencyFormatter.swift in Sources */,
 				4801C355286357B30033C8CC /* CryptoDTO.swift in Sources */,
 				4801C338286226F60033C8CC /* CurrencyListBuilder.swift in Sources */,
+				4801C37E286526680033C8CC /* DateFormatter.swift in Sources */,
 				4801C331286226CB0033C8CC /* CurrencyListInteractor.swift in Sources */,
 				4801C32D286226B80033C8CC /* CurrencyListView.swift in Sources */,
 				4801C35028625BD10033C8CC /* DetailedInfoViewController.swift in Sources */,
@@ -512,6 +532,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -566,6 +587,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -600,7 +622,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -628,7 +650,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

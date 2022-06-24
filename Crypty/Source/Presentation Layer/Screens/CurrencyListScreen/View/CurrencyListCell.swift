@@ -39,6 +39,7 @@ class CurrencyListCell: UITableViewCell {
     
     private let coinImageView: LoadableImageView = {
         let imageView = LoadableImageView()
+        imageView.image = UIImage(named: "NoImage")
         return imageView
     }()
     
@@ -94,6 +95,10 @@ extension CurrencyListCell {
         self.percentLabel.text = model.percent
         checkDiff(for: model.percent)
         self.coinImageView.url = model.image
+    }
+    
+    func checkForImageUrlExistance(url: URL) {
+        
     }
     
     func checkDiff(for percent: String) {

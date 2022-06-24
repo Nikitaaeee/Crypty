@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 
 protocol ILoginView: AnyObject {
-//    var tapButtonHandler: (() -> Void)? { get set }
     func setLoading(_ isLoading: Bool)
     func didFailedValidation(reason: String)
     }
@@ -84,11 +83,9 @@ final class LoginView: UIView {
     private lazy var emailTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .white
-//        textField.delegate = self
         textField.layer.cornerRadius = Constants.textFieldCornerRadius
         textField.layer.masksToBounds = true
         textField.clearButtonMode = .whileEditing
-
         textField.textColor = .white
         textField.backgroundColor = Colors.placeholderBlue.value
         textField.placeholder = Texts.emailPlaceholder
@@ -96,12 +93,12 @@ final class LoginView: UIView {
             string: Texts.emailPlaceholder,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
         )
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        let image = UIImage(named: "Envelope")
-        imageView.image = image
-        textField.leftView = imageView
-        textField.leftViewMode = .always
-
+        if let image = UIImage(named: "Envelope")  {
+            textField.withImage(direction: .Left,
+                                image: image,
+                                colorSeparator: Colors.placeholderBlue.value,
+                                colorBorder: Colors.purple.value)
+        }
         return textField
     }()
     
@@ -116,7 +113,6 @@ final class LoginView: UIView {
     private lazy var passwordTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .white
-//        textField.delegate = self
         textField.layer.cornerRadius = Constants.textFieldCornerRadius
         textField.layer.masksToBounds = true
         textField.textColor = .white
@@ -128,12 +124,12 @@ final class LoginView: UIView {
             string: Texts.passwordPlaceholder,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
         )
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        let image = UIImage(named: "LockSimple")
-        imageView.image = image
-        textField.leftView = imageView
-        textField.leftViewMode = .always
-
+        if let image = UIImage(named: "LockSimple")  {
+            textField.withImage(direction: .Left,
+                                image: image,
+                                colorSeparator: Colors.placeholderBlue.value,
+                                colorBorder: Colors.purple.value)
+        }
         return textField
     }()
     

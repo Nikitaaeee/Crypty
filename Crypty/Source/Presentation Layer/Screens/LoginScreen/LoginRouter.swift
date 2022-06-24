@@ -22,11 +22,8 @@ extension LoginRouter: ILoginRouter {
             message: message,
             preferredStyle: .alert
         )
-        
         let okAction = UIAlertAction(title: "Ok", style: .default)
-        
         alertController.addAction(okAction)
-        
         self.vc?.present(alertController, animated: true, completion: nil)
     }
 }

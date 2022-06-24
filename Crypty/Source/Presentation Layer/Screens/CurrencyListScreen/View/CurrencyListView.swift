@@ -136,7 +136,7 @@ extension CurrencyListView: ICurrencyListView {
         
     func checkPercent() {
         if data == nil {
-            print("22222222")
+            print("percent Nil")
         }
     }
 }
