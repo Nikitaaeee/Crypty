@@ -18,7 +18,6 @@
 		4801C2FF2861DEFC0033C8CC /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C2FE2861DEFC0033C8CC /* LoginInteractor.swift */; };
 		4801C3012861DF090033C8CC /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C3002861DF090033C8CC /* LoginRouter.swift */; };
 		4801C3032861DF140033C8CC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C3022861DF140033C8CC /* LoginView.swift */; };
-		4801C3052861E0440033C8CC /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801C3042861E0440033C8CC /* LoginViewModel.swift */; };
 		4801C3082861E3730033C8CC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4801C3072861E3730033C8CC /* SnapKit */; };
 		4801C3172861E6A30033C8CC /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4801C30B2861E6A30033C8CC /* Roboto-Regular.ttf */; };
 		4801C3182861E6A30033C8CC /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4801C30C2861E6A30033C8CC /* Roboto-Bold.ttf */; };
@@ -70,7 +69,6 @@
 		4801C2FE2861DEFC0033C8CC /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		4801C3002861DF090033C8CC /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		4801C3022861DF140033C8CC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		4801C3042861E0440033C8CC /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		4801C30B2861E6A30033C8CC /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "../../../../../../../Downloads/Overpass,Roboto/Roboto/Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		4801C30C2861E6A30033C8CC /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Bold.ttf"; path = "../../../../../../../Downloads/Overpass,Roboto/Roboto/Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		4801C3122861E6A30033C8CC /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Medium.ttf"; path = "../../../../../../../Downloads/Overpass,Roboto/Roboto/Roboto-Medium.ttf"; sourceTree = "<group>"; };
@@ -153,7 +151,6 @@
 				4801C2F42861DA130033C8CC /* LoginViewController.swift */,
 				4801C2FE2861DEFC0033C8CC /* LoginInteractor.swift */,
 				4801C2FC2861DEF30033C8CC /* LoginPresenter.swift */,
-				4801C3042861E0440033C8CC /* LoginViewModel.swift */,
 				4801C3002861DF090033C8CC /* LoginRouter.swift */,
 			);
 			path = LoginScreen;
@@ -429,7 +426,6 @@
 				4801C359286360E90033C8CC /* ServiceAssembly.swift in Sources */,
 				4801C3242861E7BD0033C8CC /* AppFonts.swift in Sources */,
 				4801C2FB2861DEE60033C8CC /* LoginBuilder.swift in Sources */,
-				4801C3052861E0440033C8CC /* LoginViewModel.swift in Sources */,
 				4801C34428625B890033C8CC /* DetailedInfoView.swift in Sources */,
 				4801C2FD2861DEF30033C8CC /* LoginPresenter.swift in Sources */,
 				4801C334286226D70033C8CC /* CurrencyListRouter.swift in Sources */,

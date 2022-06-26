@@ -53,8 +53,8 @@ extension DetailedInfoPresenter: IDetailedInfoPresenter {
         
         checkFavorite(coinName: coinName) { [weak self] isFavorite in
             isFavorite ?
-                self?.favoriteCryptoService.remove(coin: coinName) :
-                self?.favoriteCryptoService.save(coin: coinName)
+            self?.favoriteCryptoService.remove(coin: coinName) :
+            self?.favoriteCryptoService.save(coin: coinName)
             self?.view?.setCoinFavoriteStatus(isFavorite: !isFavorite)
         }
     }

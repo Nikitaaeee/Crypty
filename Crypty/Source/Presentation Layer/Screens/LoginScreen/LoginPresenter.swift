@@ -22,7 +22,6 @@ final class LoginPresenter {
     weak var output: ILoginOutput?
     private var interactor : ILoginInteractor
     private var router: ILoginRouter
-    private var currentWeatherViewModel: LoginViewModel?
     
     init(interactor: ILoginInteractor, router: ILoginRouter) {
         self.interactor = interactor
