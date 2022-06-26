@@ -19,15 +19,11 @@ struct CurrencyListViewModel: Decodable {
 
 extension CurrencyListViewModel {
     init(from data: Datum) {
-        guard let id = data.id,
-              let currencyFullName = data.name,
-              let price = data.metrics?.marketData?.priceUsd,
-              let percent = data.metrics?.marketData?.percentChangeUsdLast24_Hours else { assert(false) }
-        self.id = id
+        self.id = data.id ?? " No Id"
         self.currencyShortName = data.symbol
-        self.currencyFullName = currencyFullName
-        self.price = NumberConverter.converter(number: price)
-        self.percent = String(format: "%.3f", percent)
+        self.currencyFullName = data.name ?? "NoName"
+        self.price = NumberConverter.converter(number: data.metrics?.marketData?.priceUsd ?? 0)
+        self.percent = String(format: "%.3f", data.metrics?.marketData?.percentChangeUsdLast24_Hours ?? 0)
         self.image = nil
     }
 }
