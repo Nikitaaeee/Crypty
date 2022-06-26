@@ -12,16 +12,19 @@ protocol ICurrencyListView: AnyObject {
     func getData(data: [CurrencyListViewModel])
     var didSelectRowAt: ((String) -> ())? { get set }
     var didTapFavoriteButton: ((Bool) -> Void)? { get set }
+    var didTapSortButton: ((Bool) -> Void)? { get set }
 }
 
 final class CurrencyListView: UIView {
     
     private var isFavoriteChecked = false
+    private var isSortedPressed = false
 
     public var data: [CurrencyListViewModel]?
     private var tableView = UITableView()
     var didSelectRowAt: ((String) -> ())?
     var didTapFavoriteButton: ((Bool) -> Void)?
+    var didTapSortButton: ((Bool) -> Void)?
     var dataSource = CurrencyListDataSoruce()
     
     private enum Constants {
@@ -29,9 +32,12 @@ final class CurrencyListView: UIView {
         static let marketLabelHeight = 50
         static let marketLabelOffset = 20
         static let sortButtonTrailing = 10
+        static let buttonsOffset = 100
         static let sortButtonLeading = 50
         static let sortButtonHeight = 30
         static let sortButtonCornerRadius: CGFloat = 12
+        static let sortButtonWidth = 100
+        static let favBtnWidth = 30
         static let tableViewCellHeight: CGFloat = 70
     }
     
@@ -47,7 +53,7 @@ final class CurrencyListView: UIView {
         label.textColor = .white
         return label
     }()
-    
+        
     private let favButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = Constants.sortButtonCornerRadius
@@ -56,6 +62,16 @@ final class CurrencyListView: UIView {
         button.addTarget(self, action: #selector(didTapFavoriteButton(_:)), for: .touchUpInside)
         return button
     }()
+    
+    private let sortButton: UIButton = {
+        let button = UIButton()
+        button.layer.cornerRadius = Constants.sortButtonCornerRadius
+        button.backgroundColor = Colors.backgroundAlmostBlack.value
+        button.setTitle("Percent ↓", for: .normal)
+        button.addTarget(self, action: #selector(didTapSortButton(_:)), for: .touchUpInside)
+        return button
+    }()
+
     
     init() {
         super.init(frame: .zero)
@@ -70,6 +86,7 @@ final class CurrencyListView: UIView {
     func setupView() {
         self.backgroundColor = Colors.backgroundBlue.value
         setupMarketLabel()
+        setupSortButtonConstraints()
         setupFavButtonConstraints()
         setupTableViewConstraints()
     }
@@ -83,12 +100,22 @@ final class CurrencyListView: UIView {
         }
     }
     
+    func setupSortButtonConstraints() {
+        self.addSubview(self.sortButton)
+        self.sortButton.snp.makeConstraints { make in
+            make.top.equalTo(self.marketLabel.snp.bottom)
+            make.trailing.equalToSuperview().inset(Constants.sortButtonTrailing)
+            make.width.equalTo(Constants.sortButtonWidth)
+            make.height.equalTo(Constants.sortButtonHeight)
+        }
+    }
+    
     func setupFavButtonConstraints() {
         self.addSubview(self.favButton)
         self.favButton.snp.makeConstraints { make in
             make.top.equalTo(self.marketLabel.snp.bottom)
-            make.trailing.equalToSuperview().inset(Constants.sortButtonTrailing)
-            make.width.equalTo(Constants.buttonWidth)
+            make.leading.equalToSuperview().offset(Constants.sortButtonTrailing)
+            make.width.equalTo(Constants.favBtnWidth)
             make.height.equalTo(Constants.sortButtonHeight)
         }
     }
@@ -123,8 +150,20 @@ final class CurrencyListView: UIView {
             sender.backgroundColor = Colors.backgroundAlmostBlack.value
             sender.setTitleColor(.white, for: .normal)
         }
-        
         didTapFavoriteButton?(isFavoriteChecked)
+    }
+    
+    @objc
+    func didTapSortButton(_ sender: UIButton) {
+        isSortedPressed.toggle()
+        if isSortedPressed {
+            dataSource.isSortedAsc = isSortedPressed
+            sender.setTitle("Percent ↑", for: .normal)
+        } else {
+            dataSource.isSortedAsc = isSortedPressed
+            sender.setTitle("Percent ↓", for: .normal)
+        }
+        tableView.reloadData()
     }
 }
 
