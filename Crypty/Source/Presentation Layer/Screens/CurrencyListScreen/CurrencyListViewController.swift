@@ -40,7 +40,6 @@ final class CurrencyListViewController: UIViewController {
         super.viewDidLoad()
         configuraNavController()
         configureTapOnRow()
-        
     }
     
     func configureTapOnRow() {

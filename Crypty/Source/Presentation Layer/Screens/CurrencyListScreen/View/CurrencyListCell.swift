@@ -32,8 +32,6 @@ class CurrencyListCell: UITableViewCell {
         view.alpha = 1
         view.layer.cornerRadius = Constants.imageBackgroundCornerRadius
         view.clipsToBounds = true
-//        view.layer.borderColor = view.whiteColor().CGColor
-//        view.layer.borderWidth = 5.0
         return view
     }()
     
@@ -97,10 +95,6 @@ extension CurrencyListCell {
         self.coinImageView.url = model.image
     }
     
-    func checkForImageUrlExistance(url: URL) {
-        
-    }
-    
     func checkDiff(for percent: String) {
         let percentDouble = Double(percent)
         guard let percentDouble = percentDouble else { return }
@@ -112,9 +106,7 @@ extension CurrencyListCell {
             percentLabel.textColor = .white
         }
     }
-
 }
-
 
 private extension CurrencyListCell {
     
@@ -134,7 +126,6 @@ private extension CurrencyListCell {
     func configureBackgroundImageViewConstraints() {
         self.contentView.addSubview(coinImageBackroundView)
         self.coinImageBackroundView.snp.makeConstraints { make in
-//            make.top.bottom.equalToSuperview()
             make.centerY.equalToSuperview()
             make.width.height.equalTo(Constants.imageBackgroundSize)
             make.leading.equalToSuperview().offset(Constants.imageLeadingOffset)

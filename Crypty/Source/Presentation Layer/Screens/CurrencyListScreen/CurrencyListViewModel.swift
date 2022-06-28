@@ -14,7 +14,6 @@ struct CurrencyListViewModel: Decodable {
     let price: String
     let percent: String
     var image: URL?
-
 }
 
 extension CurrencyListViewModel {
