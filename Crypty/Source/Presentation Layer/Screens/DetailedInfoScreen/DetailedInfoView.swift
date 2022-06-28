@@ -307,7 +307,7 @@ extension DetailedInfoView: IDetailedInfoView {
     func getData(data: DetailedInfoViewModel) {
         self.coinName.text = data.symbol
         self.priceLabel.text = data.price
-        self.percentLabel.text = data.percent
+        self.percentLabel.text = String(format: "%.3f", data.percent)
         checkDiff(for: data.percent)
         self.priceHigh24Label.text = data.high24
         self.priceLow24Label.text = data.low24
@@ -319,12 +319,10 @@ extension DetailedInfoView: IDetailedInfoView {
         self.descriptionLabelText.text = data.infoText.htmlToString
     }
     
-    func checkDiff(for percent: String) {
-        let percentDouble = Double(percent)
-        guard let percentDouble = percentDouble else { return }
-        if percentDouble < 0 {
+    func checkDiff(for percent: Double) {
+        if percent < 0 {
             percentLabel.textColor = .red
-        } else if percentDouble > 0 {
+        } else if percent > 0 {
             percentLabel.textColor = .green
         } else {
             percentLabel.textColor = .white
@@ -364,7 +362,6 @@ private extension DetailedInfoView {
         configureNumbersStackView()
         configureDescriptionLabel()
         configureDescriptionLabelText()
-        
     }
     
     
@@ -400,8 +397,6 @@ private extension DetailedInfoView {
         contentView.addSubview(favoriteButton)
         favoriteButton.snp.makeConstraints { make in
             make.top.equalTo(contentView.safeAreaLayoutGuide).offset(Constants.separatorOffset)
-//            make.leading.equalToSuperview().inset(Constants.leadingOffset)
-//            make.bottom.equalTo(self.percentLabel.snp.bottom)
             make.trailing.equalToSuperview().inset(Constants.leadingOffset)
             make.width.equalTo(Constants.coinNameHeight)
             make.height.equalTo(Constants.coinNameHeight)
@@ -422,7 +417,6 @@ private extension DetailedInfoView {
             make.top.equalTo(self.coinPerformanceLabel.snp.bottom).offset(Constants.separatorOffset)
             make.leading.equalToSuperview().offset(Constants.highLow24Offset)
             make.trailing.equalTo(contentView.snp.centerX)
-//            make.width.equalTo(Constants.highLow24Width)
             make.height.equalTo(Constants.highLow24Height)
         }
     }
@@ -449,7 +443,6 @@ private extension DetailedInfoView {
             make.top.equalTo(self.separatorView.snp.bottom).offset(Constants.separatorViewOffset)
             make.leading.equalToSuperview().offset(Constants.highLow24Offset)
             make.trailing.equalTo(self.scrollView.snp.centerX)
-//            make.width.equalTo(Constants.highLow24Width)
             make.height.equalTo(Constants.highLow24Height)
         }
     }

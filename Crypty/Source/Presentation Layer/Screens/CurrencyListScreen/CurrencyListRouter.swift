@@ -13,7 +13,6 @@ protocol ICurrencyListRouter: AnyObject {
 
 final class CurrencyListRouter {
     weak var vc: UIViewController?
-    
     private let serviceAssembly: IServiceAssembly
     
     init(serviceAssembly: IServiceAssembly) {

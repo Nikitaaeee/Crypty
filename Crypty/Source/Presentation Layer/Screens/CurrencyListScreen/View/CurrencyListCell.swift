@@ -90,17 +90,15 @@ extension CurrencyListCell {
         self.shortNameLabel.text = model.currencyShortName
         self.fullNameLabel.text = model.currencyFullName
         self.priceLabel.text = model.price
-        self.percentLabel.text = model.percent
+        self.percentLabel.text = String(format: "%.3f", model.percent)
         checkDiff(for: model.percent)
         self.coinImageView.url = model.image
     }
     
-    func checkDiff(for percent: String) {
-        let percentDouble = Double(percent)
-        guard let percentDouble = percentDouble else { return }
-        if percentDouble < 0 {
+    func checkDiff(for percent: Double) {
+        if percent < 0 {
             percentLabel.textColor = .red
-        } else if percentDouble > 0 {
+        } else if percent > 0 {
             percentLabel.textColor = .green
         } else {
             percentLabel.textColor = .white

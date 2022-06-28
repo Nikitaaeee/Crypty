@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoadableImageView: UIImageView {
+final class LoadableImageView: UIImageView {
     var url: URL? {
         didSet{
             guard let url = url, url != oldValue else { return }

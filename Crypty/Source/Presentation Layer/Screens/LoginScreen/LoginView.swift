@@ -133,7 +133,7 @@ final class LoginView: UIView {
         return textField
     }()
     
-    private var loginButton: UIButton = {
+    private lazy var loginButton: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(buttonPressed) , for: .touchUpInside)
         button.backgroundColor = Colors.purple.value
@@ -155,7 +155,8 @@ extension LoginView: ILoginView {
         print(reason)
     }
     
-    @objc func buttonPressed(_ sender: UIButton) {
+    @objc
+    func buttonPressed(_ sender: UIButton) {
         self.tapButtonHandler?(self)
     }
 }

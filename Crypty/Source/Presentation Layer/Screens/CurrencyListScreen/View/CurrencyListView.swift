@@ -54,7 +54,7 @@ final class CurrencyListView: UIView {
         return label
     }()
         
-    private let favButton: UIButton = {
+    private lazy var favButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = Constants.sortButtonCornerRadius
         button.backgroundColor = Colors.backgroundAlmostBlack.value
@@ -63,7 +63,7 @@ final class CurrencyListView: UIView {
         return button
     }()
     
-    private let sortButton: UIButton = {
+    private lazy var sortButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = Constants.sortButtonCornerRadius
         button.backgroundColor = Colors.backgroundAlmostBlack.value
@@ -136,9 +136,7 @@ final class CurrencyListView: UIView {
         self.tableView.separatorStyle = .none
         self.tableView.register(CurrencyListCell.self, forCellReuseIdentifier: CurrencyListCell.id)
     }
-    
-    // MARK: - Actions
-    
+        
     @objc
     func didTapFavoriteButton(_ sender: UIButton) {
         isFavoriteChecked.toggle()

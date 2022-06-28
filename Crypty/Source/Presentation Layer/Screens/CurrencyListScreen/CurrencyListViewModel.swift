@@ -12,7 +12,7 @@ struct CurrencyListViewModel: Decodable {
     let currencyShortName: String
     let currencyFullName: String
     let price: String
-    let percent: String
+    let percent: Double
     var image: URL?
 }
 
@@ -22,7 +22,7 @@ extension CurrencyListViewModel {
         self.currencyShortName = data.symbol
         self.currencyFullName = data.name ?? "NoName"
         self.price = NumberConverter.converter(number: data.metrics?.marketData?.priceUsd ?? 0)
-        self.percent = String(format: "%.3f", data.metrics?.marketData?.percentChangeUsdLast24_Hours ?? 0)
+        self.percent = data.metrics?.marketData?.percentChangeUsdLast24_Hours ?? 0
         self.image = nil
     }
 }
