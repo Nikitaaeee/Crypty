@@ -32,8 +32,6 @@ class CurrencyListCell: UITableViewCell {
         view.alpha = 1
         view.layer.cornerRadius = Constants.imageBackgroundCornerRadius
         view.clipsToBounds = true
-//        view.layer.borderColor = view.whiteColor().CGColor
-//        view.layer.borderWidth = 5.0
         return view
     }()
     

@@ -10,7 +10,6 @@ import UIKit
 class CurrencyListDataSoruce: NSObject {
     var data = [CurrencyListViewModel]()
     var isSortedAsc = false
-//    var sortedArray = [CurrencyListViewModel]()
 }
 
 extension CurrencyListDataSoruce: UITableViewDataSource {
