@@ -1,5 +1,5 @@
 # Crypty
 Cryptocurrency track app (VIPER, URLSession)
 
-MOCK Email: "TEST"
+MOCK Email: "Test"
 MOCK Password: "0000"
