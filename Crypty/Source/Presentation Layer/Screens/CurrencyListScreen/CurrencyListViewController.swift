@@ -9,8 +9,12 @@ import UIKit
 
 final class CurrencyListViewController: UIViewController {
     
+    //MARK: - Properties
+    
     private let presenter: CurrencyListPresenter?
     private let currencyView = CurrencyListView()
+    
+    //MARK: - Lifecycle
     
     init(presenter: CurrencyListPresenter) {
         self.presenter = presenter
@@ -22,16 +26,7 @@ final class CurrencyListViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func configuraNavController() {
-        let backImage = UIImage(named: "Back")
-        navigationController?.navigationBar.barTintColor = Colors.purple.value
-        navigationItem.backButtonTitle = ""
-        self.navigationController?.navigationBar.backIndicatorImage = backImage
-        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImage
-        navigationItem.leftItemsSupplementBackButton = true
-    }
-    
+     
     override func loadView() {
         self.view = currencyView
     }
@@ -40,6 +35,19 @@ final class CurrencyListViewController: UIViewController {
         super.viewDidLoad()
         configuraNavController()
         configureTapOnRow()
+    }
+}
+
+//MARK: - Private
+
+private extension CurrencyListViewController {
+    func configuraNavController() {
+        let backImage = UIImage(named: "Back")
+        navigationController?.navigationBar.barTintColor = Colors.purple.value
+        navigationItem.backButtonTitle = ""
+        self.navigationController?.navigationBar.backIndicatorImage = backImage
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImage
+        navigationItem.leftItemsSupplementBackButton = true
     }
     
     func configureTapOnRow() {
@@ -51,7 +59,5 @@ final class CurrencyListViewController: UIViewController {
             self?.presenter?.didTapFavoriteButton(isFavoriteChecked: isFavoriteChecked)
         }
     }
-    
 }
-
 

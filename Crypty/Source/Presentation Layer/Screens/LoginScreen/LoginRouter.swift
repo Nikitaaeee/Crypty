@@ -12,8 +12,13 @@ protocol ILoginRouter: AnyObject {
 }
 
 final class LoginRouter {
+    
+    //MARK: - Properties
+    
     weak var vc: UIViewController?
 }
+
+//MARK: - ILoginRouter
 
 extension LoginRouter: ILoginRouter {
     func didRequestAlert(title: String, message: String) {

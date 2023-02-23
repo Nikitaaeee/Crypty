@@ -20,7 +20,7 @@ final class CurrencyListBuilder {
         let presenter = CurrencyListPresenter(interactor: interactor, router: router, favoriteCryptoService: serviceAssembly.favoriteCryptoService)
         let vc = CurrencyListViewController(presenter: presenter)
         router.vc = vc
-        
+
         return vc
     }
 }

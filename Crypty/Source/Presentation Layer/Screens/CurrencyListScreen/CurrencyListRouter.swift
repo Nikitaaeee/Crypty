@@ -12,16 +12,22 @@ protocol ICurrencyListRouter: AnyObject {
 }
 
 final class CurrencyListRouter {
+    
+    //MARK: - Properties
+    
     weak var vc: UIViewController?
     private let serviceAssembly: IServiceAssembly
+    
+    //MARK: - Views
     
     init(serviceAssembly: IServiceAssembly) {
         self.serviceAssembly = serviceAssembly
     }
 }
 
+//MARK: - ICurrencyListRouter
+
 extension CurrencyListRouter: ICurrencyListRouter {
-    
     func goToSelecterRow(for datum: Datum) {
         let builder = DetailedInfoBuilder(
             networkService: serviceAssembly.networkService,

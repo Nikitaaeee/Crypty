@@ -39,7 +39,7 @@ class AuthenticationService: IAuthenticationService {
     }
 }
 
-// MARK: - Constants
+// MARK: - MOCK Constants
 
 private let mockEmail: String = "Test"
 private let mockPassword: String = "0000"

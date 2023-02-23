@@ -13,6 +13,9 @@ protocol IDetailedInfoPresenter: AnyObject {
 }
 
 final class DetailedInfoPresenter {
+    
+    //MARK: - Properties
+    
     private var view: IDetailedInfoView?
     private var interactor : IDetailedInfoInteractor?
     private var router: IDetailedInfoRouter?
@@ -20,12 +23,16 @@ final class DetailedInfoPresenter {
     private let favoriteCryptoService: IFavoriteCryptoService
     var coinName: String?
     
+    //MARK: - Lifecycle
+    
     init(interactor: IDetailedInfoInteractor, router: IDetailedInfoRouter, favoriteCryptoService: IFavoriteCryptoService) {
         self.interactor = interactor
         self.router = router
         self.favoriteCryptoService = favoriteCryptoService
     }
 }
+
+//MARK: - IDetailedInfoPresenter
 
 extension DetailedInfoPresenter: IDetailedInfoPresenter {
     func viewDidLoad(view: IDetailedInfoView) {
@@ -58,7 +65,11 @@ extension DetailedInfoPresenter: IDetailedInfoPresenter {
             self?.view?.setCoinFavoriteStatus(isFavorite: !isFavorite)
         }
     }
-    
+}
+
+//MARK: - Private
+
+private extension DetailedInfoPresenter {
     func checkFavorite(coinName: String, completion: @escaping (Bool) -> Void) {
         favoriteCryptoService.favoriteList { coins in
             completion(coins.contains(coinName))

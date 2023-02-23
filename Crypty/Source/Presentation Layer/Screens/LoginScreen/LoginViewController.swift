@@ -9,8 +9,12 @@ import UIKit
 
 final class LoginViewController: UIViewController {
     
+    //MARK: - Properties
+    
     private var presenter: ILoginPresenter
     private var loginView = LoginView()
+    
+    //MARK: - Lifecycle
     
     init(presenter: LoginPresenter) {
         self.presenter = presenter
@@ -31,13 +35,9 @@ final class LoginViewController: UIViewController {
         configureTapHandler()
         configureNavBar()
     }
-    
-    func configureNavBar() {
-        navigationController?.navigationBar.prefersLargeTitles = false
-        navigationController?.navigationBar.tintColor = Colors.purple.value
-        navigationItem.titleView?.tintColor = Colors.backgroundBlue.value
-    }
 }
+
+//MARK: - Private
 
 private extension LoginViewController {
     func configureTapHandler() {
@@ -45,5 +45,10 @@ private extension LoginViewController {
             self?.presenter.login(email: view.email, password: view.password)
         }
     }
-
+    
+    func configureNavBar() {
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationBar.tintColor = Colors.purple.value
+        navigationItem.titleView?.tintColor = Colors.backgroundBlue.value
+    }
 }

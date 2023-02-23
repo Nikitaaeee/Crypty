@@ -14,6 +14,9 @@ protocol ICurrencyListPresenter: AnyObject {
 }
 
 final class CurrencyListPresenter {
+    
+    //MARK: - Properties
+    
     private var view: ICurrencyListView?
     private var interactor : ICurrencyListInteractor?
     private var router: ICurrencyListRouter?
@@ -22,12 +25,16 @@ final class CurrencyListPresenter {
     var dtoModel: CryptoDTO?
     var data: [CurrencyListViewModel] = []
     
+    //MARK: - Lifecycle
+    
     init(interactor: ICurrencyListInteractor, router: ICurrencyListRouter, favoriteCryptoService: IFavoriteCryptoService) {
         self.interactor = interactor
         self.router = router
         self.favoriteCryptoService = favoriteCryptoService
     }
 }
+
+//MARK: - ICurrencyListPresenter
 
 extension CurrencyListPresenter: ICurrencyListPresenter {
     func viewDidLoad(view: ICurrencyListView) {
@@ -39,17 +46,6 @@ extension CurrencyListPresenter: ICurrencyListPresenter {
             self.data = self.convertDataToModel(dto: model)
             view.getData(data: self.data)
         })
-    }
-    
-    func convertDataToModel(dto: CryptoDTO) -> [CurrencyListViewModel] {
-        var entity = [CurrencyListViewModel]()
-        let int = dto.data.count - 1
-        for i in 0...int {
-            var model = CurrencyListViewModel(from: dto.data[i])
-            model.image = URL(string:  NetworkService.Endpoints.urlPath + model.currencyShortName.lowercased() + NetworkService.Endpoints.urlEndpoint)
-            entity.append(model)
-        }
-        return entity
     }
     
     func didTapFavoriteButton(isFavoriteChecked: Bool) {
@@ -69,12 +65,26 @@ extension CurrencyListPresenter: ICurrencyListPresenter {
             view?.getData(data: data)
         }
     }
+}
+
+//MARK: - Private
+
+private extension CurrencyListPresenter {
+    func convertDataToModel(dto: CryptoDTO) -> [CurrencyListViewModel] {
+        var entity = [CurrencyListViewModel]()
+        let int = dto.data.count - 1
+        for i in 0...int {
+            var model = CurrencyListViewModel(from: dto.data[i])
+            model.image = URL(string:  NetworkService.Endpoints.urlPath + model.currencyShortName.lowercased() + NetworkService.Endpoints.urlEndpoint)
+            entity.append(model)
+        }
+        return entity
+    }
     
     func goToSelecterRow(for id: String) {
         guard let datum = dtoModel?.data.first(where: { datum in
             datum.id == id
         }) else {
-            print("No model for ID")
             return
         }
         router?.goToSelecterRow(for: datum)
