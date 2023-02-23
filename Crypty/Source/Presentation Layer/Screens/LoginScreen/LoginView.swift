@@ -11,9 +11,11 @@ import SnapKit
 protocol ILoginView: AnyObject {
     func setLoading(_ isLoading: Bool)
     func didFailedValidation(reason: String)
-    }
+}
 
 final class LoginView: UIView {
+    
+    //MARK: - Properties
     
     var tapButtonHandler: ((LoginView) -> Void)?
     
@@ -23,53 +25,15 @@ final class LoginView: UIView {
     public var password: String? {
         passwordTextField.text
     }
-
-        
-    private enum Constants {
-        static let accountLoginLabelTextSize: CGFloat = 30
-        static let accountLoginLabelTopConstraint = 42
-        static let accountLoginLabelLeftConstraint = 20
-        static let accountLoginLabelRightConstraint = 38
-        
-        static let emailLabelTopOffset = 100
-        static let emailLaabelTrailingOffset = 20
-        
-        static let textFieldsOffset = 20
-        
-        static let emailPlaceholderHeight = 55
-        
-        static let textFieldCornerRadius: CGFloat = 6
-        static let accountLabelHeight = 35
-        static let emailAndPasswordLabelHeihgt = 23
-        
-        static let loginButtonTopOffset = 40
-    }
     
-    private enum Texts {
-        static let accountLoginText: String = "Account Login"
-        static let emailLabelText: String = "Email"
-        static let passwordLabelText: String = "Password"
-
-        static let emailPlaceholder: String = "Your email adress.."
-        static let passwordPlaceholder: String = "Your password.."
-        
-        static let buttonText: String = "Login"
-    }
-    
-    init() {
-        super.init(frame: .zero)
-        setupLayout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    //MARK: - Views
     
     private var accountLoginLabel: UILabel = {
         let label = UILabel()
         label.text = Texts.accountLoginText
         label.font = AppFonts.bold30.font
         label.textColor = .white
+        
         return label
     }()
     private var emailLabel: UILabel = {
@@ -77,6 +41,7 @@ final class LoginView: UIView {
         label.text = Texts.emailLabelText
         label.font = AppFonts.medium20.font
         label.textColor = .white
+        
         return label
     }()
     
@@ -99,6 +64,7 @@ final class LoginView: UIView {
                                 colorSeparator: Colors.placeholderBlue.value,
                                 colorBorder: Colors.purple.value)
         }
+        
         return textField
     }()
     
@@ -107,6 +73,7 @@ final class LoginView: UIView {
         label.text = Texts.passwordLabelText
         label.font = AppFonts.medium20.font
         label.textColor = .gray
+        
         return label
     }()
     
@@ -125,27 +92,42 @@ final class LoginView: UIView {
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
         )
         if let image = UIImage(named: "LockSimple")  {
-            textField.withImage(direction: .Left,
-                                image: image,
-                                colorSeparator: Colors.placeholderBlue.value,
-                                colorBorder: Colors.purple.value)
+            textField.withImage(
+                direction: .Left,
+                image: image,
+                colorSeparator: Colors.placeholderBlue.value,
+                colorBorder: Colors.purple.value)
         }
+        
         return textField
     }()
     
-    private var loginButton: UIButton = {
+    private lazy var loginButton: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(buttonPressed) , for: .touchUpInside)
         button.backgroundColor = Colors.purple.value
         button.setTitle(Texts.buttonText, for: .normal)
         button.layer.cornerRadius = Constants.textFieldCornerRadius
+        
         return button
     }()
     
+
+    //MARK: - Lifecycle
+    
+    init() {
+        super.init(frame: .zero)
+        setupLayout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
+//MARK: - ILoginView
+
 extension LoginView: ILoginView {
-    
     func setLoading(_ isLoading: Bool) {
         loginButton.isEnabled = !isLoading
         loginButton.isUserInteractionEnabled = !isLoading
@@ -155,13 +137,15 @@ extension LoginView: ILoginView {
         print(reason)
     }
     
-    @objc func buttonPressed(_ sender: UIButton) {
+    @objc
+    func buttonPressed(_ sender: UIButton) {
         self.tapButtonHandler?(self)
     }
 }
 
+//MARK: - Private
+
 private extension LoginView {
-    
     func setupLayout() {
         self.backgroundColor = Colors.backgroundBlue.value
         configureAccountLabel()
@@ -230,6 +214,34 @@ private extension LoginView {
             make.trailing.equalTo(self.emailLabel.snp.trailing)
             make.height.equalTo(Constants.emailPlaceholderHeight)
         }
+    }
+}
+
+//MARK: - Constants
+
+private extension LoginView {
+    enum Constants {
+        static let accountLoginLabelTextSize: CGFloat = 30
+        static let accountLoginLabelTopConstraint: CGFloat = 42
+        static let accountLoginLabelLeftConstraint: CGFloat = 20
+        static let accountLoginLabelRightConstraint: CGFloat = 38
+        static let emailLabelTopOffset: CGFloat = 100
+        static let emailLaabelTrailingOffset: CGFloat  = 20
+        static let textFieldsOffset: CGFloat  = 20
+        static let emailPlaceholderHeight: CGFloat  = 55
+        static let textFieldCornerRadius: CGFloat = 6
+        static let accountLabelHeight: CGFloat  = 35
+        static let emailAndPasswordLabelHeihgt: CGFloat  = 23
+        static let loginButtonTopOffset: CGFloat  = 40
+    }
+    
+    enum Texts {
+        static let accountLoginText: String = "Account Login"
+        static let emailLabelText: String = "Email"
+        static let passwordLabelText: String = "Password"
+        static let emailPlaceholder: String = "Your email adress.."
+        static let passwordPlaceholder: String = "Your password.."
+        static let buttonText: String = "Login"
     }
 }
 

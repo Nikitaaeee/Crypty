@@ -12,15 +12,21 @@ protocol ICurrencyListInteractor: AnyObject {
 }
 
 final class CurrencyListInteractor {
+    
+    //MARK: - Properties
+    
     var networkService: INetworkService
+    
+    //MARK: - Lifecycle
     
     init(networkService: INetworkService) {
         self.networkService = networkService
     }
 }
 
+//MARK: - ICurrencyListInteractor
+
 extension CurrencyListInteractor: ICurrencyListInteractor {
-    
     func generateData(completion: @escaping (CryptoDTO?) -> Void) {
         self.networkService.loadCurrencyList { (result: Result<CryptoDTO, Error>) in
             switch result {

@@ -10,11 +10,14 @@ import UIKit
 
 final class DetailedInfoViewController: UIViewController {
     
-    static var coinName: String = ""
+    //MARK: - Properties
     
+    static var coinName: String = ""
     private var presenter: DetailedInfoPresenter?
     private var router = DetailedInfoRouter()
     private var currencyView = DetailedInfoView()
+    
+    //MARK: - Lifecycle
     
     init(presenter: DetailedInfoPresenter) {
         super.init(nibName: nil, bundle: nil)
@@ -37,6 +40,7 @@ final class DetailedInfoViewController: UIViewController {
     }
 }
 
+//MARK: - Configure
 
 extension DetailedInfoViewController {
     func configureView() {

@@ -17,33 +17,19 @@ protocol ICurrencyListView: AnyObject {
 
 final class CurrencyListView: UIView {
     
+    //MARK: - Properties
+    
     private var isFavoriteChecked = false
     private var isSortedPressed = false
-
-    public var data: [CurrencyListViewModel]?
     private var tableView = UITableView()
+    
+    var data: [CurrencyListViewModel]?
     var didSelectRowAt: ((String) -> ())?
     var didTapFavoriteButton: ((Bool) -> Void)?
     var didTapSortButton: ((Bool) -> Void)?
     var dataSource = CurrencyListDataSoruce()
     
-    private enum Constants {
-        static let buttonWidth = 40
-        static let marketLabelHeight = 50
-        static let marketLabelOffset = 20
-        static let sortButtonTrailing = 10
-        static let buttonsOffset = 100
-        static let sortButtonLeading = 50
-        static let sortButtonHeight = 30
-        static let sortButtonCornerRadius: CGFloat = 12
-        static let sortButtonWidth = 100
-        static let favBtnWidth = 30
-        static let tableViewCellHeight: CGFloat = 70
-    }
-    
-    private enum Texts {
-        static let marketLabelText = "Markets:"
-    }
+    //MARK: - Views
     
     private let marketLabel: UILabel = {
         let label = UILabel()
@@ -53,8 +39,8 @@ final class CurrencyListView: UIView {
         label.textColor = .white
         return label
     }()
-        
-    private let favButton: UIButton = {
+    
+    private lazy var favButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = Constants.sortButtonCornerRadius
         button.backgroundColor = Colors.backgroundAlmostBlack.value
@@ -63,7 +49,7 @@ final class CurrencyListView: UIView {
         return button
     }()
     
-    private let sortButton: UIButton = {
+    private lazy var sortButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = Constants.sortButtonCornerRadius
         button.backgroundColor = Colors.backgroundAlmostBlack.value
@@ -71,7 +57,8 @@ final class CurrencyListView: UIView {
         button.addTarget(self, action: #selector(didTapSortButton(_:)), for: .touchUpInside)
         return button
     }()
-
+    
+    //MARK: - Lifecycle
     
     init() {
         super.init(frame: .zero)
@@ -82,7 +69,11 @@ final class CurrencyListView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+}
+
+//MARK: - Private
+
+private extension CurrencyListView {
     func setupView() {
         self.backgroundColor = Colors.backgroundBlue.value
         setupMarketLabel()
@@ -136,9 +127,7 @@ final class CurrencyListView: UIView {
         self.tableView.separatorStyle = .none
         self.tableView.register(CurrencyListCell.self, forCellReuseIdentifier: CurrencyListCell.id)
     }
-    
-    // MARK: - Actions
-    
+        
     @objc
     func didTapFavoriteButton(_ sender: UIButton) {
         isFavoriteChecked.toggle()
@@ -158,27 +147,25 @@ final class CurrencyListView: UIView {
         isSortedPressed.toggle()
         if isSortedPressed {
             dataSource.isSortedAsc = isSortedPressed
-            sender.setTitle("Percent ↑", for: .normal)
+            sender.setTitle(Texts.sortedUpText, for: .normal)
         } else {
             dataSource.isSortedAsc = isSortedPressed
-            sender.setTitle("Percent ↓", for: .normal)
+            sender.setTitle(Texts.sortedDownText, for: .normal)
         }
         tableView.reloadData()
     }
 }
+
+//MARK: - ICurrencyListView
 
 extension CurrencyListView: ICurrencyListView {
     func getData(data: [CurrencyListViewModel]) {
         self.dataSource.data = data
         tableView.reloadData()
     }
-        
-    func checkPercent() {
-        if data == nil {
-            print("percent Nil")
-        }
-    }
 }
+
+//MARK: - UITableViewDelegate
 
 extension CurrencyListView: UITableViewDelegate {
     
@@ -188,5 +175,29 @@ extension CurrencyListView: UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return Constants.tableViewCellHeight
+    }
+}
+
+//MARK: - Constants
+
+private extension CurrencyListView {
+    enum Constants {
+        static let buttonWidth: CGFloat = 40
+        static let marketLabelHeight: CGFloat = 50
+        static let marketLabelOffset: CGFloat = 20
+        static let sortButtonTrailing: CGFloat = 10
+        static let buttonsOffset: CGFloat = 100
+        static let sortButtonLeading: CGFloat = 50
+        static let sortButtonHeight: CGFloat = 30
+        static let sortButtonCornerRadius: CGFloat = 12
+        static let sortButtonWidth: CGFloat = 100
+        static let favBtnWidth: CGFloat = 30
+        static let tableViewCellHeight: CGFloat = 70
+    }
+    
+    enum Texts {
+        static let marketLabelText: String = "Markets:"
+        static let sortedUpText: String = "Percent ↑"
+        static let sortedDownText: String = "Percent ↓"
     }
 }

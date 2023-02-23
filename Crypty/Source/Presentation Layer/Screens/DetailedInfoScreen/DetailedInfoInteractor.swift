@@ -12,8 +12,13 @@ protocol IDetailedInfoInteractor: AnyObject {
 }
 
 final class DetailedInfoInteractor {
+    
+    //MARK: - Properties
+    
     var networkService: INetworkService
     var datum: Datum
+    
+    //MARK: - Lifecycle
     
     init(networkService: INetworkService, datum: Datum) {
         self.networkService = networkService
@@ -21,9 +26,11 @@ final class DetailedInfoInteractor {
     }
 }
 
+//MARK: - IDetailedInfoInteractor
 extension DetailedInfoInteractor: IDetailedInfoInteractor {
     func getData() -> DetailedInfoViewModel {
         let model = DetailedInfoViewModel(from: datum)
-    return model
+        
+        return model
     }
 }

@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private lazy var appCoordinator = AppCoordinator(window: window, serviceAssembly: serviceAssembly)
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-       
         appCoordinator.start()
+        
         return true
     }
 

@@ -11,7 +11,7 @@ struct DetailedInfoViewModel {
     let name: String
     let symbol: String
     let price: String
-    let percent: String
+    let percent: Double
     let high24: String
     let low24: String
     let rating: String
@@ -25,30 +25,18 @@ struct DetailedInfoViewModel {
 extension DetailedInfoViewModel {
     
     init(from data: Datum) {
-        guard let name = data.name,
-              let price = data.metrics?.marketData?.priceUsd,
-              let percent = data.metrics?.marketData?.percentChangeUsdLast24_Hours,
-              let high24 = data.metrics?.marketData?.ohlcvLast24_Hour?.high,
-              let low24 = data.metrics?.marketData?.ohlcvLast24_Hour?.low,
-              let rating = data.metrics?.marketcap?.rank,
-              let allTimeHigh = data.metrics?.allTimeHigh?.price,
-              let at = data.metrics?.allTimeHigh?.at,
-              let daysSince = data.metrics?.allTimeHigh?.daysSince,
-              let percentDown = data.metrics?.allTimeHigh?.percentDown,
-              let infoText = data.profile?.general?.overview?.projectDetails else { assert(false) }
-        
-        self.name = name
+        self.name = data.name ?? "No Name"
         self.symbol = data.symbol
-        self.price = NumberConverter.converter(number: price)
-        self.percent = String(format: "%.3f", percent)
-        self.high24 = NumberConverter.converter(number: high24)
-        self.low24 = NumberConverter.converter(number: low24)
-        self.rating = String(rating)
-        self.allTimeHigh = NumberConverter.converter(number: allTimeHigh)
-        self.at = DateConverter.showShortDay(at)
-        self.daysSince = String(daysSince)
-        self.percentDown = "- " + String(format: "%.3f", percentDown) + "%"
-        self.infoText = infoText
+        self.price = NumberConverter.converter(number: data.metrics?.marketData?.priceUsd ?? 0)
+        self.percent = data.metrics?.marketData?.percentChangeUsdLast24_Hours ?? 0
+        self.high24 = NumberConverter.converter(number: data.metrics?.marketData?.ohlcvLast24_Hour?.high ?? 0)
+        self.low24 = NumberConverter.converter(number: data.metrics?.marketData?.ohlcvLast24_Hour?.low ?? 0)
+        self.rating = String(data.metrics?.marketcap?.rank ?? 0)
+        self.allTimeHigh = NumberConverter.converter(number: data.metrics?.allTimeHigh?.price ?? 0)
+        self.at = DateConverter.showShortDay(data.metrics?.allTimeHigh?.at ?? "2022-06-28T15:21:02Z")
+        self.daysSince = String(data.metrics?.allTimeHigh?.daysSince ?? 0)
+        self.percentDown = "- " + String(format: "%.3f", data.metrics?.allTimeHigh?.percentDown ?? 0) + "%"
+        self.infoText = data.profile?.general?.overview?.projectDetails ?? "No Info"
     }
 }
 

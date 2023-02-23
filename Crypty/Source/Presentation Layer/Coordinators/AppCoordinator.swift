@@ -9,8 +9,13 @@ import Foundation
 import UIKit
 
 class AppCoordinator {
+    
+    //MARK: - Properties
+    
     weak var window: UIWindow?
     private let serviceAssembly: IServiceAssembly
+    
+    //MARK: - Lifecycle
     
     init(window: UIWindow?, serviceAssembly: IServiceAssembly) {
         self.window = window
@@ -24,6 +29,7 @@ class AppCoordinator {
     }
 }
 
+//MARK: - ILoginOutput
 extension AppCoordinator: ILoginOutput {
     func didLogin() {
         DispatchQueue.main.async { [weak self] in
@@ -31,6 +37,8 @@ extension AppCoordinator: ILoginOutput {
         }
     }
 }
+
+//MARK: - Private
 
 private extension AppCoordinator {
     func presentLoginModule() {

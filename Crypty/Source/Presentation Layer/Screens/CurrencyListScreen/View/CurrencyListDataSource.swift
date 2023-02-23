@@ -7,22 +7,17 @@
 
 import UIKit
 
-class CurrencyListDataSoruce: NSObject {
+final class CurrencyListDataSoruce: NSObject {
+    
+    //MARK: - Properties
+    
     var data = [CurrencyListViewModel]()
     var isSortedAsc = false
 }
 
+//MARK: - UITableViewDataSource
+
 extension CurrencyListDataSoruce: UITableViewDataSource {
-    
-    func sortData(sortedAsc: Bool) -> [CurrencyListViewModel] {
-        if sortedAsc {
-            data.sort { $0.percent < $1.percent }
-        } else {
-            data.sort { $0.percent > $1.percent }
-        }
-        return data
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         data.count
     }
@@ -32,5 +27,18 @@ extension CurrencyListDataSoruce: UITableViewDataSource {
         cell.showData(sortData(sortedAsc: isSortedAsc)[indexPath.row])
         cell.backgroundColor = Colors.backgroundBlue.value
         return cell
+    }
+}
+
+//MARK: - Private
+
+private extension CurrencyListDataSoruce {
+    func sortData(sortedAsc: Bool) -> [CurrencyListViewModel] {
+        if sortedAsc {
+            data.sort { $0.percent < $1.percent }
+        } else {
+            data.sort { $0.percent > $1.percent }
+        }
+        return data
     }
 }

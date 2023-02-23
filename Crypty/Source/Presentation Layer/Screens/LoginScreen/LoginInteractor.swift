@@ -12,8 +12,13 @@ protocol ILoginInteractor: AnyObject {
 }
 
 final class LoginInteractor {
+    
+    //MARK: - Properties
+    
     private var authService = AuthenticationService()
 }
+
+//MARK: - ILoginInteractor
 
 extension LoginInteractor: ILoginInteractor {
     func login(email: String, password: String, completion: @escaping (Bool) -> Void) {
@@ -27,5 +32,4 @@ extension LoginInteractor: ILoginInteractor {
             }
         }
     }
-
 }

@@ -7,24 +7,13 @@
 
 import UIKit
 
-class CurrencyListCell: UITableViewCell {
+final class CurrencyListCell: UITableViewCell {
+    
+    //MARK: - Properties
     
     static let id = String(describing: CurrencyListCell.self)
     
-    private enum Constants {
-        static let currencyImageSize = 40
-        static let imageBackgroundSize = 50
-        static let imageBackgroundCornerRadius: CGFloat = 25
-        
-        static let topBottomInset = 5
-        static let imageLeadingOffset = 20
-        static let pricePercentTrailingOffset = 20
-        static let nameOffset = 5
-        static let shortNameWidth = 76
-        static let shortNameHeight = 25
-        static let fullNameHeight = 15
-        static let fullnameWidth = 100
-    }
+    //MARK: - Views
     
     private let coinImageBackroundView: UIView = {
         let view = UIView()
@@ -37,7 +26,7 @@ class CurrencyListCell: UITableViewCell {
     
     private let coinImageView: LoadableImageView = {
         let imageView = LoadableImageView()
-        imageView.image = UIImage(named: "NoImage")
+        imageView.image = UIImage(named: Constants.defaultImage)
         return imageView
     }()
     
@@ -75,6 +64,8 @@ class CurrencyListCell: UITableViewCell {
         return label
     }()
     
+    //MARK: - Lifecycle
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setupLayout()
@@ -85,30 +76,31 @@ class CurrencyListCell: UITableViewCell {
     }
 }
 
+//MARK: - Configure
+
 extension CurrencyListCell {
     func showData(_ model: CurrencyListViewModel) {
         self.shortNameLabel.text = model.currencyShortName
         self.fullNameLabel.text = model.currencyFullName
         self.priceLabel.text = model.price
-        self.percentLabel.text = model.percent
+        self.percentLabel.text = String(format: "%.3f", model.percent)
         checkDiff(for: model.percent)
         self.coinImageView.url = model.image
     }
-    
-    func checkDiff(for percent: String) {
-        let percentDouble = Double(percent)
-        guard let percentDouble = percentDouble else { return }
-        if percentDouble < 0 {
+}
+
+//MARK: - Private
+
+private extension CurrencyListCell {
+    func checkDiff(for percent: Double) {
+        if percent < .zero {
             percentLabel.textColor = .red
-        } else if percentDouble > 0 {
+        } else if percent > .zero {
             percentLabel.textColor = .green
         } else {
             percentLabel.textColor = .white
         }
     }
-}
-
-private extension CurrencyListCell {
     
     func setupCell() {
         self.contentView.backgroundColor = .clear
@@ -177,7 +169,25 @@ private extension CurrencyListCell {
             make.leading.equalTo(self.fullNameLabel.snp.trailing)
             make.trailing.equalToSuperview().inset(Constants.pricePercentTrailingOffset)
             make.height.equalTo(Constants.fullNameHeight)
-
         }
+    }
+}
+
+//MARK: - Constants
+
+private extension CurrencyListCell {
+    enum Constants {
+        static let currencyImageSize: CGFloat = 40
+        static let imageBackgroundSize: CGFloat = 50
+        static let imageBackgroundCornerRadius: CGFloat = 25
+        static let topBottomInset: CGFloat = 5
+        static let imageLeadingOffset: CGFloat = 20
+        static let pricePercentTrailingOffset: CGFloat = 20
+        static let nameOffset: CGFloat = 5
+        static let shortNameWidth: CGFloat = 76
+        static let shortNameHeight: CGFloat = 25
+        static let fullNameHeight: CGFloat = 15
+        static let fullnameWidth: CGFloat = 100
+        static let defaultImage: String = "NoImage"
     }
 }

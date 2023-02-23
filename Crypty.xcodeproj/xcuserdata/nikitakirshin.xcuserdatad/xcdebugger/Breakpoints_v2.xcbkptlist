@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AE276DD2-CABB-4BE0-84A1-794E7CFAEBAA"
-            shouldBeEnabled = "Yes"
+            uuid = "8163DB18-8AE5-4135-BCED-6C562E403FBA"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Crypty/Source/Presentation Layer/Screens/CurrencyListScreen/View/LoadableImageView.swift"
+            filePath = "Crypty/Source/Extensions/UITextField+Extensions.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "loadImage(from:)"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "withImage(direction:image:colorSeparator:colorBorder:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
