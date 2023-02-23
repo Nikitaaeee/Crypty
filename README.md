@@ -1,5 +1,5 @@
 # Crypty
-Cryptocurrency track app using SPM
+Cryptocurrency track app using SPM (SnapKit)
 
 **MOCK Email: "Test"**
 
