@@ -48,6 +48,15 @@ extension CurrencyListPresenter: ICurrencyListPresenter {
         })
     }
     
+    func goToSelecterRow(for id: String) {
+        guard let datum = dtoModel?.data.first(where: { datum in
+            datum.id == id
+        }) else {
+            return
+        }
+        router?.goToSelecterRow(for: datum)
+    }
+    
     func didTapFavoriteButton(isFavoriteChecked: Bool) {
         if isFavoriteChecked {
             favoriteCryptoService.favoriteList { [weak self] coins in
@@ -79,14 +88,5 @@ private extension CurrencyListPresenter {
             entity.append(model)
         }
         return entity
-    }
-    
-    func goToSelecterRow(for id: String) {
-        guard let datum = dtoModel?.data.first(where: { datum in
-            datum.id == id
-        }) else {
-            return
-        }
-        router?.goToSelecterRow(for: datum)
     }
 }
