@@ -1,9 +1,9 @@
 # Crypty
 Cryptocurrency track app using SPM (SnapKit)
 
-**MOCK Email: "Test"**
+**MOCK Email:** `Test`
 
-**MOCK Password: "0000"**
+**MOCK Password:** `0000`
 
 The application allows you to view a list of top cryptocurrencies, their details, as well as add individual cryptocurrencies to your favorites.
 The design of the application is implemented in accordance with the design in **FIGMA**.
